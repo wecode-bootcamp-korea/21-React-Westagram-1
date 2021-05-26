@@ -1,5 +1,5 @@
 import React from 'react';
-import Router, { Switch } from 'react-router-dom';
+import Router, { Switch, Route } from 'react-router-dom';
 
 import LoginBaek from './pages/jinsubaek/Login/Login';
 import MainBaek from './pages/jinsubaek/Main/Main';
@@ -14,7 +14,7 @@ import LoginKim from './pages/mingikim/Login/Login';
 import MainKim from './pages/mingikim/Main/Main';
 
 // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
-class Router extends React.Component {
+class Routes extends React.Component {
   render() {
     return (
       <Router>
@@ -33,4 +33,4 @@ class Router extends React.Component {
   }
 }
 
-export default Router;
+export default Routes;
