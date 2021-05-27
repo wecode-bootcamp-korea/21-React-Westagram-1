@@ -4,7 +4,7 @@ import './Nav.scss';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className="Nav">
         <div className="home">
           <a href="#" className="icon" />
           <div className="bar">|</div>

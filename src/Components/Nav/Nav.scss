@@ -1,6 +1,6 @@
 @import "../../Pages/jinsubaek/Styles/common.scss";
 
-nav {
+.Nav {
   @include setFlex(space-around);
   position: fixed;
   top: 0;
