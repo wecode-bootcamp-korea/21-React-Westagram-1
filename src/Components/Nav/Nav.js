@@ -25,10 +25,7 @@ class Nav extends React.Component {
           <div className="liked"></div>
           <div className="profile"></div>
           <div className="profile-image">
-            <img
-              alt="my profile"
-              src={process.env.PUBLIC_URL + '/images/navImages/profile6.jpeg'}
-            />
+            <img src="/images/navImages/profile6.jpeg" alt="my profile" />
           </div>
           <ul className="menu-box" style={{ display: 'none' }}>
             <li>
