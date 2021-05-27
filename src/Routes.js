@@ -1,5 +1,5 @@
 import React from 'react';
-import Router, { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginBaek from './pages/jinsubaek/Login/Login';
 import MainBaek from './pages/jinsubaek/Main/Main';
