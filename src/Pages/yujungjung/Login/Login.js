@@ -6,8 +6,8 @@ class Login extends React.Component {
     return (
       <div className="Login">
         <div className="wrap">
-          <div className="iphoneImage">
-            <img alt="iphonePhoto" src="/image/iphone.png" />
+          <div className="iphoneimages/yujungjung">
+            <img alt="iphonePhoto" src="/images/yujungjung/iphone.png" />
           </div>
           <section>
             <article className="loginSection grayBorder">
@@ -53,13 +53,13 @@ class Login extends React.Component {
                 <a href="">
                   <img
                     alt="applestoreButton"
-                    src="./image/appstore-button.png"
+                    src="./images/yujungjung/appstore-button.png"
                   />
                 </a>
                 <a href="">
                   <img
                     alt="androidstoreButton"
-                    src="./image/googleplay-button.png"
+                    src="./images/yujungjung/googleplay-button.png"
                   />
                 </a>
               </div>
