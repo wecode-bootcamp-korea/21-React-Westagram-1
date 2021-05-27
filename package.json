@@ -41,5 +41,9 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.3.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/wecode-bootcamp-korea/21-React-Westagram-1.git",
+  "author": "UlongChaS2 <jyujung2@gmail.com>",
+  "license": "MIT"
 }
