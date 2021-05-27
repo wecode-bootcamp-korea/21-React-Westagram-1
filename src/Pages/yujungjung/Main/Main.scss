@@ -93,6 +93,7 @@
 
   section {
     @include flex-center(center, initial);
+    margin-top: 4rem;
 
     .separateWrap {
       @include flex-center(center, flex-start);

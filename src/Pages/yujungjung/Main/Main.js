@@ -1,11 +1,12 @@
 import React from 'react';
 import './Main.scss';
+import Nav from '../../../Components/Nav/Nav';
 
 class Main extends React.Component {
   render() {
     return (
       <div className="Main">
-        <nav>
+        {/* <nav>
           <div className="mainWrap">
             <h1 id="logo">Westagram</h1>
             <div className="searchBox">
@@ -30,7 +31,9 @@ class Main extends React.Component {
               </li>
             </ul>
           </div>
-        </nav>
+        </nav> */}
+
+        <Nav />
         <section>
           <div className="separateWrap">
             <div className="mainContents">
