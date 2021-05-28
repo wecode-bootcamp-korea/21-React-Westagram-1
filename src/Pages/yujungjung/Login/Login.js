@@ -2,11 +2,25 @@ import React from 'react';
 import './Login.scss';
 
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      idValue: '',
+      passwordValue: '',
+    };
+  }
+  handleIdInput = e => {
+    console.log(e.target.value);
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
     return (
       <div className="Login">
         <div className="wrap">
-          <div className="iphoneimages/yujungjung">
+          <div className="iphoneImage">
             <img alt="iphonePhoto" src="/images/yujungjung/iphone.png" />
           </div>
           <section>
@@ -17,11 +31,21 @@ class Login extends React.Component {
                   <span className="placeholderText">
                     전화번호, 사용자 이름 또는 이메일
                   </span>
-                  <input type="text" className="id" />
+                  <input
+                    onChange={this.handleIdInput}
+                    type="text"
+                    className="id"
+                    name="idValue"
+                  />
                 </div>
                 <div className="loginCotentsBox">
                   <span className="placeholderText">비밀번호</span>
-                  <input type="password" className="password" />
+                  <input
+                    onChange={this.handleIdInput}
+                    type="password"
+                    className="password"
+                    name="passwordValue"
+                  />
                   <button className="passwordViewButton">비밀번호 표시</button>
                 </div>
                 <button>로그인</button>

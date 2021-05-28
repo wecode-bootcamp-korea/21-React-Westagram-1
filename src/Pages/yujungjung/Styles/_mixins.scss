@@ -9,13 +9,13 @@ $breakpoint-tablet-M: 1000px;
 }
 
 @mixin tablet-S {
-  @media (min-width: 0px) and (max-width: #{$breakpoint-tablet-S - 1px}) {
+  @media screen and (max-width: #{$breakpoint-tablet-S - 1px}) {
     @content;
   }
 }
 
 @mixin tablet-M {
-  @media (min-width: #{$breakpoint-tablet-S}) and (min-width: #{$breakpoint-tablet-M}) {
+  @media screen and (min-width: #{$breakpoint-tablet-M}) {
     @content;
   }
 }
