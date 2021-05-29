@@ -1,5 +1,21 @@
 @import "../../../Styles/reset.scss";
 
+* {
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  background: none;
+  border: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
 @mixin setFlex(
   $justifyContent: center,
   $alignItems: center,
