@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginBaek from './Pages/jinsubaek/Login/Login';
-// import MainBaek from './pages/jinsubaek/Main/Main';
+import MainBaek from './pages/jinsubaek/Main/Main';
 
 // import LoginKang from './pages/junheekang/Login/Login';
 // import MainKang from './pages/junheekang/Main/Main';
