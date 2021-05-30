@@ -1,0 +1,412 @@
+@mixin flexSet($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+$commonBorder: 1px solid #dbdbdb;
+
+.iconSet {
+  width: 24px;
+  height: 24px;
+}
+
+.main {
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @media screen and (max-width: 940px) {
+    .aside {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #searchInput {
+      display: none;
+    }
+
+    .navContainer {
+      .searchWrapper {
+        display: none;
+      }
+    }
+  }
+
+  /* nav */
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-bottom: $commonBorder;
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    z-index: 2;
+
+    .navContainer {
+      @include flexSet(space-between, center);
+      width: 920px;
+      padding: 0px 20px;
+    }
+
+    .searchWrapper {
+      display: flex;
+      justify-content: center;
+      background-color: #fafafa;
+      width: 215px;
+      height: 25px;
+      border: $commonBorder;
+      border-radius: 4px;
+    }
+
+    .iconWrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+    }
+
+    #logo {
+      font-family: 'Lobster', cursive;
+      color: #252529;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    #searchInput {
+      background-color: #fafafa;
+      width: 160px;
+      height: 25px;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    #searchInput::placeholder {
+      text-align: center;
+      color: rgb(138, 138, 138);
+      font-weight: 300;
+      font-size: 14px;
+    }
+  }
+
+  /* feeds */
+
+  main {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .feeds {
+    margin-right: 30px;
+
+    .feedsWrapper {
+      display: flex;
+    }
+
+    header {
+      width: 568px;
+      height: 27px;
+      background-color: white;
+      border: $commonBorder;
+      border-bottom: none;
+      display: flex;
+      padding: 16px;
+    }
+
+    .feedProfileWrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .feedProfile {
+      width: 32px;
+      height: 32px;
+      border: $commonBorder;
+      border-radius: 50%;
+    }
+
+    .articleHeaderWrapper {
+      @include flexSet(space-between, center);
+      flex-direction: row;
+      width: 100%;
+    }
+    .userId {
+      margin-left: 14px;
+      text-decoration: none;
+      color: #262626;
+      font-size: 15px;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .otheruserId {
+      text-decoration: none;
+      color: #262626;
+      font-weight: 600;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .articlePhoto {
+      width: 600px;
+      height: 600px;
+    }
+
+    .photoWrapper {
+      width: 600px;
+      height: 600px;
+      border: $commonBorder;
+    }
+
+    .textContent {
+      font-size: 14px;
+    }
+  }
+
+  /* Comments */
+
+  .comments {
+    .commentIconWrapper {
+      display: flex;
+      justify-content: space-between;
+      height: 20px;
+      padding: 10px 16px;
+    }
+
+    .leftIcon {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+    }
+
+    .writtenCommentsContainer {
+      width: 600px;
+      border: $commonBorder;
+      border-top: none;
+      background-color: white;
+      position: relative;
+    }
+
+    #commentNum {
+      color: gray;
+      margin: 10px 0px 10px 0px;
+      font-size: 13px;
+    }
+    .userComment {
+      margin: 5px 0px;
+    }
+
+    #userIdinComment {
+      margin-right: 5px;
+      text-decoration: none;
+      color: #262626;
+      font-weight: 600;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    #smileEmoji {
+      width: 24px;
+      height: 24px;
+      margin: 12px;
+    }
+
+    .commentContainer {
+      display: flex;
+      align-items: center;
+      padding: 14px 10px;
+      border: $commonBorder;
+      border-top: none;
+      background-color: white;
+    }
+
+    .commentInputWrapper {
+      display: inline;
+    }
+
+    .commentText {
+      width: 500px;
+      border: none;
+      outline: none;
+      margin-left: 14px;
+    }
+
+    .commentContent {
+      display: inline;
+      margin-bottom: 5px;
+      font-weight: 400;
+      color: #252529;
+    }
+
+    .myCommentId {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #252529;
+      font-weight: 600;
+    }
+
+    .myCommentId:hover {
+      text-decoration: underline;
+    }
+
+    .myCommentWrapper {
+      margin-bottom: 5px;
+    }
+
+    .commentText::placeholder {
+      color: rgb(139, 139, 139);
+    }
+
+    .listContainer {
+      margin-bottom: 15px;
+      list-style: none;
+    }
+
+    .uploadButton {
+      margin-left: 8px;
+      background-color: white;
+      border: none;
+      color: #0095f6;
+      font-weight: 600;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .writtenInfo {
+      margin-left: 16px;
+    }
+  }
+
+  /* aside */
+
+  aside {
+    width: 293px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+
+    .recommendTextWrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0px 0px 0px;
+    }
+
+    .myProfileContanier {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    #myProfileWrapper {
+      text-decoration: none;
+    }
+
+    .myProfileImg {
+      width: 50px;
+      border: $commonBorder;
+      border-radius: 50%;
+    }
+
+    .myNameText {
+      color: #252529;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 16px;
+    }
+
+    #recommendText {
+      display: inline-block;
+      color: rgb(133, 133, 133);
+      font-weight: 600;
+    }
+
+    #seeAll {
+      color: #252529;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .userRecommend {
+      position: relative;
+      list-style: none;
+      padding: 10px 0px;
+      width: 100%;
+    }
+
+    .userList {
+      display: flex;
+      align-items: center;
+      padding: 8px 0px;
+    }
+
+    .recommendListWrapper {
+      display: inline-block;
+    }
+
+    #user1Profile {
+      width: 32px;
+      margin-right: 12px;
+    }
+
+    .recommendId {
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      color: #262626;
+    }
+
+    .recommendId:hover {
+      text-decoration: underline;
+    }
+
+    .followerInfo {
+      font-size: 11px;
+      margin-top: 2px;
+      color: rgb(139, 139, 139);
+    }
+
+    .followButton,
+    .switchButton {
+      position: absolute;
+      right: 0px;
+      background-color: #fafafa;
+      border: none;
+      color: #0095f6;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .followButton:hover,
+    .switchButton:hover {
+      cursor: pointer;
+    }
+  }
+
+  footer {
+    font-size: 11px;
+    color: rgb(196, 196, 196);
+    line-height: 160%;
+    padding: 10px 0px;
+  }
+}
