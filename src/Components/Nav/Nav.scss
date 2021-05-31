@@ -1,4 +1,4 @@
-@import "../../Pages/jinsubaek/Styles/common.scss";
+@import '../../Pages/jinsubaek/Styles/common.scss';
 
 .Nav {
   @include setFlex(space-around);
@@ -19,7 +19,7 @@
       min-width: 25px;
       min-height: 25px;
       margin-right: 10px;
-      background-image: url("https://w7.pngwing.com/pngs/674/221/png-transparent-logo-computer-icons-organization-color-business-instagram-miscellaneous-company-service-thumbnail.png");
+      background-image: url('https://w7.pngwing.com/pngs/674/221/png-transparent-logo-computer-icons-organization-color-business-instagram-miscellaneous-company-service-thumbnail.png');
       background-repeat: no-repeat;
       background-size: contain;
       cursor: pointer;
@@ -35,7 +35,7 @@
     .title {
       margin-right: 10px;
       color: black;
-      font-family: "Lobster", cursive;
+      font-family: 'Lobster', cursive;
       font-size: 1.3rem;
     }
   }
@@ -63,7 +63,7 @@
       border-radius: 50%;
       color: white;
       background: lightgrey;
-    
+
       span {
         font-size: 10px;
       }
@@ -135,15 +135,15 @@
       background-size: contain;
 
       &.navigation {
-        background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png");
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png');
       }
 
       &.liked {
-        background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png");
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png');
       }
 
       &.profile {
-        background-image: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png");
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png');
       }
 
       &.profile-image {
