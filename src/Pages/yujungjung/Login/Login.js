@@ -7,16 +7,25 @@ class Login extends React.Component {
     this.state = {
       idValue: '',
       passwordValue: '',
+      // focusActive: '.focusActive',
     };
   }
-  handleIdInput = e => {
-    console.log(e.target.value);
+
+  handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
+  // inputFocus = e => {
+  //   console.log(e.target);
+  //   console.log(e.target.previousElementSibling);
+  //   console.log(e.target.parentNode);
+  //   this.setState({});
+  // };
+
   render() {
+    const { idValue, passwordValue } = this.state;
     return (
       <div className="Login">
         <div className="wrap">
@@ -28,27 +37,37 @@ class Login extends React.Component {
               <h1 id="logo">Westagram</h1>
               <div className="loginBox">
                 <div className="loginCotentsBox">
-                  <span className="placeholderText">
-                    전화번호, 사용자 이름 또는 이메일
-                  </span>
+                  <span className="placeholderText"></span>
                   <input
-                    onChange={this.handleIdInput}
+                    onFocus={this.inputFocus}
+                    onChange={this.handleInput}
                     type="text"
                     className="id"
                     name="idValue"
+                    placeholder="전화번호, 사용자 이름 또는 이메일"
                   />
                 </div>
                 <div className="loginCotentsBox">
-                  <span className="placeholderText">비밀번호</span>
+                  <span className="placeholderText"></span>
                   <input
-                    onChange={this.handleIdInput}
+                    onChange={this.handleInput}
                     type="password"
                     className="password"
                     name="passwordValue"
+                    placeholder="비밀번호"
                   />
                   <button className="passwordViewButton">비밀번호 표시</button>
                 </div>
-                <button>로그인</button>
+                <button
+                  className="loginButton"
+                  disabled={
+                    idValue.includes('@') && passwordValue.length > 4
+                      ? false
+                      : true
+                  }
+                >
+                  로그인
+                </button>
                 <div className="or">
                   <div className="orBorder"></div>
                   <div className="orText">또는</div>
