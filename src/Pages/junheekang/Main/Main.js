@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../junheekang/Main/Main.scss';
 import Nav from '../../../Components/Nav/Nav';
+import CommentInput from '../CommentInput';
+import CommentList from '../CommentList';
 
 class Main extends React.Component {
   render() {

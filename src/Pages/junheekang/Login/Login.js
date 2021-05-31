@@ -7,7 +7,32 @@ class Login extends React.Component {
     this.props.history.push('/main-kang');
   };
 
+  constructor() {
+    super();
+
+    this.state = {
+      userId: '',
+      userPassword: '',
+    };
+  }
+
+  handleIdInput = e => {
+    this.setState({
+      userId: e.target.value,
+    });
+  };
+
+  handlePasswordInput = e => {
+    this.setState({
+      userPassword: e.target.value,
+    });
+  };
+
   render() {
+    const { userId, userPassword } = this.state;
+    const { handleIdInput, handlePasswordInput } = this;
+    const disabled = userId.includes('@') && userPassword.length > 5;
+
     return (
       <div className="login">
         <main>
@@ -22,20 +47,28 @@ class Login extends React.Component {
               <div className="userIdWrapper">
                 <input
                   type="text"
-                  name="input1"
+                  name="idInput"
                   className="userId"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
+                  value={userId}
+                  onChange={handleIdInput}
                 />
               </div>
               <div className="userPasswordWrapper">
                 <input
                   type="password"
-                  name="input2"
+                  name="passwordInput"
                   className="userPassword"
                   placeholder="비밀번호"
+                  value={userPassword}
+                  onChange={handlePasswordInput}
                 />
               </div>
-              <button className="loginButton" onClick={this.goToMain}>
+              <button
+                className="loginButton"
+                onClick={this.goToMain}
+                disabled={!disabled}
+              >
                 로그인
               </button>
               <div className="orContainer">
