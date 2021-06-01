@@ -10,8 +10,6 @@ class Login extends React.Component {
     const inputedName = event.target.name;
     const inputedValue = event.target.value;
     this.setState({ [inputedName]: inputedValue });
-    console.log(event.target.value);
-    console.log(this.state.id);
   };
   goToMain = () => {
     this.props.history.push('/main-kim');
