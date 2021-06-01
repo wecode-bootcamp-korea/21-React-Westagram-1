@@ -4,7 +4,7 @@
     "userName": "canon-mj",
     "imagePath": "/images/jinsubaek/baking.jpeg",
     "content": "위워크에서 진행한 베이킹 클래스...",
-    "comment": [
+    "comments": [
       {
         "id": 1,
         "userName": "wecode",
@@ -32,12 +32,58 @@
     "id": 2,
     "userName": "canon-mj",
     "imagePath": "/images/jinsubaek/profile1.jpeg",
-    "content": "안녕하세요..."
+    "content": "안녕하세요...",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "QWEQWE!",
+        "isLiked": true,
+        "date": "2021/5/20"
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "asdasd.",
+        "isLiked": false,
+        "date": "2021/5/20"
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "Hey.",
+        "isLiked": false,
+        "date": "2021/5/20"
+      }
+    ]
   },
   {
     "id": 3,
     "userName": "canon-mj",
     "imagePath": "/images/jinsubaek/profile2.jpeg",
-    "content": "안녕히 가세요..."
+    "content": "안녕히 가세요...",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "hi!",
+        "isLiked": true,
+        "date": "2021/5/20"
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "bye.",
+        "isLiked": false,
+        "date": "2021/5/20"
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "Hey.",
+        "isLiked": false,
+        "date": "2021/5/20"
+      }
+    ]
   }
 ]

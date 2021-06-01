@@ -72,15 +72,16 @@ class Login extends React.Component {
               onChange={e => this.handleChangePasswordInput(e)}
               value={this.state.password}
             />
-            {this.state.isActivatedBtn ? (
-              <button type="submit" style={{ backgroundColor: 'dodgerblue' }}>
-                로그인
-              </button>
-            ) : (
-              <button type="submit" style={{ backgroundColor: '#c5e0fe' }}>
-                로그인
-              </button>
-            )}
+            <button
+              type="submit"
+              style={
+                this.state.isActivatedBtn
+                  ? { backgroundColor: 'dodgerblue' }
+                  : { backgroundColor: '#c5e0fe' }
+              }
+            >
+              로그인
+            </button>
           </form>
         </main>
         <footer>
