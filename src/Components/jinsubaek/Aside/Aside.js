@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Aside.scss';
 
 class Aside extends React.Component {
@@ -127,8 +128,12 @@ class Aside extends React.Component {
           </ul>
         </div>
         <div className="info">
-          instagram 정보 · 지원 · 홍보 센터 · API · 채용 정보 · 개인정보처리방침
-          · 약관 · 디렉터리 · 프로필 · 해시태그 · 언어 <br /> © 2019 INSTAGRAM
+          <Link to="#">instagram 정보</Link> · <Link to="#">지원</Link> ·
+          <Link to="#">홍보 센터</Link> · <Link to="#">API</Link> ·
+          <Link to="#">채용 정보</Link> ·<Link to="#">개인정보처리방침</Link>·
+          <Link to="#">약관</Link> ·<Link to="#">디렉터리</Link> ·
+          <Link to="#">프로필</Link> · <Link to="#">해시태그</Link> ·
+          <Link to="#">언어</Link> <br /> © 2019 INSTAGRAM
         </div>
       </div>
     );
