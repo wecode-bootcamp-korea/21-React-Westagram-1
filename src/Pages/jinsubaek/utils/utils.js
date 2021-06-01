@@ -21,3 +21,8 @@ export const createDate = () => {
   const now = new Date();
   return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
 };
+
+let id = 4;
+export const createId = () => {
+  return id++;
+};

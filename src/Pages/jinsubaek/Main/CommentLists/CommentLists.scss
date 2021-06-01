@@ -1,0 +1,49 @@
+@import '../../Styles/common.scss';
+
+.comment {
+  position: relative;
+  margin-left: 10px;
+  font-size: 15px;
+
+  .lists {
+    li {
+      margin: 5px 0 5px 0;
+
+      div {
+        &:nth-child(1) {
+          @include setFlex(stretch);
+        }
+      }
+
+      .name {
+        margin-right: 5px;
+        font-weight: bold;
+      }
+
+      .delete {
+        @include setFlex();
+        position: absolute;
+        right: 50px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        color: white;
+        background: lightgrey;
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .heart {
+        position: absolute;
+        right: 20px;
+        color: grey;
+      }
+
+      .time {
+        color: #9c9c9c;
+      }
+    }
+  }
+}

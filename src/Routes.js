@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import LoginBaek from './Pages/jinsubaek/Login/Login';
-import MainBaek from './pages/jinsubaek/Main/Main';
+import MainBaek from './Pages/jinsubaek/Main/Main';
 
 // import LoginKang from './pages/junheekang/Login/Login';
 // import MainKang from './pages/junheekang/Main/Main';
@@ -20,8 +19,8 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/login-baek" component={LoginBaek} />
-          {/* <Route exact path="/main-baek" component={MainBaek} />
-          <Route exact path="/login-kang" component={LoginKang} />
+          <Route exact path="/main-baek" component={MainBaek} />
+          {/* <Route exact path="/login-kang" component={LoginKang} />
           <Route exact path="/main-kang" component={MainKang} />
           <Route exact path="/login-jung" component={LoginJung} />
           <Route exact path="/main-jung" component={MainJung} />
