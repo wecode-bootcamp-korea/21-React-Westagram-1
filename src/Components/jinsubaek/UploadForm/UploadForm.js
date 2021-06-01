@@ -26,18 +26,19 @@ class UploadForm extends React.Component {
   }
 
   render() {
+    const { commentInputValue } = this.state;
     return (
       <form className="UploadForm" onSubmit={e => this.handleSubmitForm(e)}>
         <input
           type="text"
           placeholder="댓글 달기..."
           onChange={e => this.handleChangeInput(e)}
-          value={this.state.commentInputValue}
+          value={commentInputValue}
         />
         <button
           type="submit"
           style={
-            this.state.commentInputValue.length > 0
+            commentInputValue.length > 0
               ? { backgroundColor: 'dodgerblue' }
               : { backgroundColor: '#c5e0fe' }
           }

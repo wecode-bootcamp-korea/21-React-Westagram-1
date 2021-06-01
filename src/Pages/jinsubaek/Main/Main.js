@@ -33,12 +33,13 @@ class Main extends React.Component {
   }
 
   render() {
+    const { feeds } = this.state;
     return (
       <div className="Main">
         <Nav />
         <section>
           <ul>
-            {this.state.feeds.map(feed => {
+            {feeds.map(feed => {
               return (
                 <Feed
                   key={feed.id}

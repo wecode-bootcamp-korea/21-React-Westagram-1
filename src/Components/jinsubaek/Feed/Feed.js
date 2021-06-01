@@ -40,15 +40,17 @@ class Feed extends React.Component {
   }
 
   render() {
+    const { id, userName, imagePath, content } = this.props;
+    const { comments } = this.state;
     return (
-      <li className="Feed" key={this.props.id}>
+      <li className="Feed" key={id}>
         <div className="title">
           <img alt="canon-mj's profile" src="/images/jinsubaek/profile1.jpeg" />
-          <span className="feeds-title-id">{this.props.userName}</span>
+          <span className="feeds-title-id">{userName}</span>
           <i className="fas fa-ellipsis-h"></i>
         </div>
         <div className="image">
-          <img alt="baking" src={this.props.imagePath} />
+          <img alt="baking" src={imagePath} />
         </div>
         <div className="tab">
           <i className="fas fa-heart fa-lg"></i>
@@ -66,19 +68,26 @@ class Feed extends React.Component {
           </div>
         </div>
         <div className="description">
-          <span>{this.props.userName}</span>
+          <span>{userName}</span>
           <div>
-            {this.props.content}
+            {content}
             <span>더 보기</span>
           </div>
         </div>
-        {this.state.comments.length > 0 && (
-          <CommentLists
-            key={this.props.id}
-            comments={this.state.comments}
-            deleteComment={commentId => this.deleteComment(commentId)}
-          />
-        )}
+        <div className="comment">
+          <ul className="lists">
+            {comments.length > 0 &&
+              this.state.comments.map(comment => {
+                return (
+                  <CommentLists
+                    key={comment.id}
+                    comment={comment}
+                    deleteComment={commentId => this.deleteComment(commentId)}
+                  />
+                );
+              })}
+          </ul>
+        </div>
         <UploadForm addComment={comment => this.addComment(comment)} />
       </li>
     );
