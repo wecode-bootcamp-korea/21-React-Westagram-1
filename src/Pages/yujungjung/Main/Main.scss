@@ -1,29 +1,5 @@
 @import '../Styles/mixins.scss';
 
-@mixin flex-center($justify-content: center, $align-items: center) {
-  display: flex;
-  justify-content: $justify-content;
-  align-items: $align-items;
-}
-
-@include tablet-S {
-  .searchBox {
-    display: none !important;
-  }
-
-  .newCommentBox {
-    display: none !important;
-  }
-}
-
-@include tablet-M {
-  .profile {
-    display: block !important;
-    width: 29.3rem;
-    margin: 4rem 0;
-  }
-}
-
 .Main {
   nav {
     @include flex-center();
@@ -70,7 +46,7 @@
   .icons {
     @include flex-center(space-between, center);
 
-    @at-root.icon > img {
+    @at-root .icon > img {
       width: 2.2rem;
       height: 2.2rem;
       margin-right: 2.2rem;
@@ -90,7 +66,6 @@
 
   section {
     @include flex-center(center, initial);
-    margin-top: 4rem;
 
     .separateWrap {
       @include flex-center(center, flex-start);
@@ -103,7 +78,7 @@
           @include flex-center(space-between, center);
           padding: 2rem 1.4rem 1.4rem;
 
-          &.borderBox {
+          @at-root .borderBox {
             margin-bottom: 2rem;
             border: 1px solid #eaeaea;
             border-radius: 3px;
@@ -114,7 +89,7 @@
               flex-direction: column;
               align-items: center;
 
-              .colorfulCircle {
+              @at-root .colorfulCircle {
                 @include flex-center();
                 position: relative;
                 width: 6.6rem;
@@ -122,15 +97,14 @@
                 background: linear-gradient(120deg, #c82d8e 0%, #f99d4c 100%);
                 border-radius: 100%;
 
-                .profilePhoto {
-                  position: absolute;
+                @at-root .profilePhoto {
                   width: 6.2rem;
                   height: 6.2rem;
                   border: 2px solid white;
                   border-radius: 100%;
                 }
 
-                @at-root.userid {
+                @at-root .userid {
                   margin-top: 0.5rem;
                   font-size: 1.2rem;
                 }
@@ -150,7 +124,7 @@
     .user {
       @include flex-center(initial, center);
 
-      @at-root.smallprofile {
+      @at-root .smallprofile {
         position: relative;
         display: flex;
         justify-content: center;
@@ -170,7 +144,7 @@
         }
 
         @at-root.bolduserid {
-          flex: 2;
+          flex: 1;
           margin-right: 1rem;
           font-size: 1.4rem;
           font-weight: 700;
@@ -186,11 +160,11 @@
 
   .postPhoto {
     width: 100%;
-    height: 40rem;
+    height: 55rem;
   }
 
   .postComments {
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 0;
 
     div {
       padding: 0.4rem 0;
@@ -205,46 +179,62 @@
       }
     }
 
+    li {
+      display: flex;
+      font-size: 1.4rem;
+
+      .comment {
+        flex: 9;
+      }
+
+      .likeWhiteHeart {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-top: 0.8rem;
+      }
+    }
     .postingDate {
       padding-top: 1rem;
       font-size: 1rem;
       color: gray;
+      padding: 0rem;
     }
-  }
 
-  .tagePeople {
-    color: #00376b;
+    .line {
+      width: 100%;
+      height: 1px;
+      background: #eaeaea;
+      padding: 0rem;
+      margin-top: 1.4rem;
+    }
+    .newCommentBox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 6rem;
+
+      .emoji > img {
+        width: 2.6rem;
+        height: 2.6rem;
+      }
+
+      .newComment {
+        width: 47rem;
+        height: 1.8rem;
+        border: 0rem;
+        resize: none;
+        overflow: hidden;
+      }
+
+      button {
+        border: 0px;
+        background: #ffffff00;
+      }
+    }
   }
 
   .profile {
     display: none;
-  }
-
-  .newCommentBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 6rem;
-    padding: 2rem;
-    border-top: 1px solid #eaeaea;
-
-    .emoji > img {
-      width: 2.6rem;
-      height: 2.6rem;
-    }
-
-    .newComment {
-      width: 47rem;
-      height: 1.8rem;
-      border: 0rem;
-      resize: none;
-      overflow: hidden;
-    }
-
-    button {
-      border: 0px;
-      background: #ffffff00;
-    }
   }
 
   .myProfile {
@@ -265,6 +255,12 @@
 
   .blue {
     color: #0095f6;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: -0.09rem;
+  }
+  .bluenone {
+    color: #0094f688;
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: -0.09rem;
@@ -333,31 +329,22 @@
       line-height: 1;
     } // 위 a태그랑 속성이 겹침
   }
+}
 
-  // 전역 클래스로 만들기
-
-  .borderBox {
-    margin-bottom: 2rem;
-    border: 1px solid #eaeaea;
-    border-radius: 3px;
-    background-color: white;
+@include tablet-S {
+  .Main nav .searchBox {
+    display: none;
   }
-  .colorfulCircle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6.6rem;
-    height: 6.6rem;
-    background: linear-gradient(120deg, #c82d8e 0%, #f99d4c 100%);
-    border-radius: 100%;
 
-    .profilePhoto {
-      position: absolute;
-      width: 6.2rem;
-      height: 6.2rem;
-      border: 2px solid white;
-      border-radius: 100%;
-    }
+  .separateWrap .postComments .newCommentBox {
+    display: none;
+  }
+}
+
+@include tablet-M {
+  .separateWrap .profile {
+    display: block;
+    width: 29.3rem;
+    margin: 4rem 0;
   }
 }

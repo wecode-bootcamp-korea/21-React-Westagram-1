@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -7,7 +8,6 @@ class Login extends React.Component {
     this.state = {
       idValue: '',
       passwordValue: '',
-      // focusActive: '.focusActive',
     };
   }
 
@@ -16,13 +16,6 @@ class Login extends React.Component {
       [e.target.name]: e.target.value,
     });
   };
-
-  // inputFocus = e => {
-  //   console.log(e.target);
-  //   console.log(e.target.previousElementSibling);
-  //   console.log(e.target.parentNode);
-  //   this.setState({});
-  // };
 
   render() {
     const { idValue, passwordValue } = this.state;
@@ -39,7 +32,6 @@ class Login extends React.Component {
                 <div className="loginCotentsBox">
                   <span className="placeholderText"></span>
                   <input
-                    onFocus={this.inputFocus}
                     onChange={this.handleInput}
                     type="text"
                     className="id"
@@ -77,81 +69,81 @@ class Login extends React.Component {
                   <span className="facebookIcon"></span>
                   <span>Facebook으로 로그인</span>
                 </div>
-                <a href="" className="forgotPassword">
+                <Link href="" className="forgotPassword">
                   비밀번호를 잊으셨나요?
-                </a>
+                </Link>
               </div>
             </article>
 
             <article className="findAccont grayBorder">
               <div>계정이 없으신가요?</div>
-              <a className="sign" href="">
+              <Link className="sign" href="">
                 가입하기
-              </a>
+              </Link>
             </article>
 
             <article className="downloadApp">
               <div>앱을 다운로드하세요.</div>
               <div className="appButtons">
-                <a href="">
+                <Link href="">
                   <img
                     alt="applestoreButton"
                     src="./images/yujungjung/appstore-button.png"
                   />
-                </a>
-                <a href="">
+                </Link>
+                <Link href="">
                   <img
                     alt="androidstoreButton"
                     src="./images/yujungjung/googleplay-button.png"
                   />
-                </a>
+                </Link>
               </div>
             </article>
           </section>
         </div>
 
         <footer>
-          <div className="link">
+          <div className="Link">
             <ul>
               <li>
-                <a href="">소개</a>
+                <Link href="">소개</Link>
               </li>
               <li>
-                <a href="">블로그</a>
+                <Link href="">블로그</Link>
               </li>
               <li>
-                <a href="">채용 정보</a>
+                <Link href="">채용 정보</Link>
               </li>
               <li>
-                <a href="">도움말</a>
+                <Link href="">도움말</Link>
               </li>
               <li>
-                <a href="">API</a>
+                <Link href="">API</Link>
               </li>
               <li>
-                <a href="">개인정보처리방침</a>
+                <Link href="">개인정보처리방침</Link>
               </li>
               <li>
-                <a href="">약관</a>
+                <Link href="">약관</Link>
               </li>
               <li>
-                <a href="">인기 계정</a>
+                <Link href="">인기 계정</Link>
               </li>
               <li>
-                <a href="">해시태그</a>
+                <Link href="">해시태그</Link>
               </li>
               <li>
-                <a href="">위치</a>
+                <Link href="">위치</Link>
               </li>
             </ul>
           </div>
           <div className="detail">
             <ul>
               <li>
-                <a href="">한국어</a>
+                <Link href="">한국어</Link>
               </li>
               <li>
-                <a href="">© 2021 Instagram from Facebook</a>
+                <Link href="">© 2021 Instagram from Facebook</Link>
               </li>
             </ul>
           </div>

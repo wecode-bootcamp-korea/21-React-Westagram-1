@@ -1,39 +1,59 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import NavJung from './NavJung';
+import Comments from './Comments';
 import './Main.scss';
-import Nav from '../../../Components/Nav/Nav';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+      commentValue: '',
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
+  }
+
+  handleCommentValue = e => {
+    this.setState({
+      commentValue: e.target.value,
+    });
+  };
+
+  addComment = e => {
+    e.preventDefault();
+    const { commentList, commentValue } = this.state;
+    this.setState({
+      commentList: [
+        ...commentList,
+        {
+          id: commentList.lenght + 1,
+          userName: 'Yujung',
+          content: commentValue,
+          isLiked: false,
+        },
+      ],
+      commentValue: '',
+    });
+  };
+
   render() {
+    const { commentList, commentValue } = this.state;
+
     return (
       <div className="Main">
-        {/* <nav>
-          <div className="mainWrap">
-            <h1 id="logo">Westagram</h1>
-            <div className="searchBox">
-              <img alt="searchIcon" src="/images/yujungjung/serach.png" />
-              <input className="searchText" type="text" placeholder="검색" />
-            </div>
-            <ul className="icons">
-              <li className="icon">
-                <img alt="main" src="/images/yujungjung/home_black.png" />
-              </li>
-              <li className="icon">
-                <img alt="DM" src="images/yujungjung/send.png" />
-              </li>
-              <li className="icon">
-                <img alt="explore" src="/images/yujungjung/compass.png" />
-              </li>
-              <li className="icon">
-                <img alt="likes" src="/images/yujungjung/heart.png" />
-              </li>
-              <li className="myAccount">
-                <img alt="myproflie" src="/images/yujungjung/mingky.jpg" />
-              </li>
-            </ul>
-          </div>
-        </nav> */}
-
-        <Nav />
+        <NavJung />
         <section>
           <div className="separateWrap">
             <div className="mainContents">
@@ -99,29 +119,41 @@ class Main extends React.Component {
                     <span>카페에 가서 여유를 즐기고싶어😂😂</span>
                   </div>
                   <div className="commentsCount">댓글 5개 모두 보기</div>
-                  <div className="comments">
-                    <div className="comment">
-                      <span className="bolduserid">wecode</span>
-                      <span className="tagePeople">@Yujung</span>
-                      코딩 왜 이렇게 힘들까요?
-                    </div>
-                    <div className="comment">
-                      <span className="bolduserid">Yujung</span>
-                      그러게요 언제 완성 시킬 수 있을까요?
-                    </div>
-                  </div>
+
+                  <ul className="comments">
+                    {commentList.map(comment => {
+                      return (
+                        <Comments
+                          key={comment.id}
+                          onClick={this.changeColor}
+                          name={comment.userName}
+                          comment={comment.content}
+                        />
+                      );
+                    })}
+                  </ul>
                   <div className="postingDate">1시간 전</div>
-                </div>
-                <div className="newCommentBox">
-                  <div className="emoji">
-                    <img alt="emojiBox" src="/images/yujungjung/smile.png" />
+                  <div className="line"></div>
+                  <div className="newCommentBox">
+                    <div className="emoji">
+                      <img alt="emojiBox" src="/images/yujungjung/smile.png" />
+                    </div>
+                    <form onSubmit={this.addComment}>
+                      <input
+                        onChange={this.handleCommentValue}
+                        type="text"
+                        className="newComment"
+                        placeholder="댓글달기..."
+                        value={commentValue}
+                      ></input>
+                    </form>
+                    <button
+                      className={commentValue ? 'blue' : 'bluenone'}
+                      onClick={commentValue ? this.addComment : ''}
+                    >
+                      게시
+                    </button>
                   </div>
-                  <textarea
-                    className="newComment"
-                    cols="30"
-                    placeholder="댓글달기..."
-                  ></textarea>
-                  <button className="blue">게시</button>
                 </div>
               </article>
             </div>
@@ -152,9 +184,9 @@ class Main extends React.Component {
                       />
                     </div>
                     <div>
-                      <a className="bolduserid" href="">
+                      <Link className="bolduserid" href="">
                         새소년
-                      </a>
+                      </Link>
                       <div className="followInfo">
                         u_soyeonn님 외 4명이 팔로우합니다
                       </div>
@@ -166,37 +198,37 @@ class Main extends React.Component {
               <footer>
                 <ul>
                   <li>
-                    <a href="">소개</a>
+                    <Link href="">소개</Link>
                   </li>
                   <li>
-                    <a href="">도움말</a>
+                    <Link href="">도움말</Link>
                   </li>
                   <li>
-                    <a href="">홍보 센터</a>
+                    <Link href="">홍보 센터</Link>
                   </li>
                   <li>
-                    <a href="">API</a>
+                    <Link href="">API</Link>
                   </li>
                   <li>
-                    <a href="">채용 정보</a>
+                    <Link href="">채용 정보</Link>
                   </li>
                   <li>
-                    <a href="">개인정보처리방침</a>
+                    <Link href="">개인정보처리방침</Link>
                   </li>
                   <li>
-                    <a href="">약관</a>
+                    <Link href="">약관</Link>
                   </li>
                   <li>
-                    <a href="">위치</a>
+                    <Link href="">위치</Link>
                   </li>
                   <li>
-                    <a href="">인기 계정</a>
+                    <Link href="">인기 계정</Link>
                   </li>
                   <li>
-                    <a href="">해시태크</a>
+                    <Link href="">해시태크</Link>
                   </li>
                   <li>
-                    <a href="">언어</a>
+                    <Link href="">언어</Link>
                   </li>
                 </ul>
                 <div className="mainInfo">© 2021 Instagram from Facebook</div>

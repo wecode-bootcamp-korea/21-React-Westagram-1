@@ -1,19 +1,5 @@
 @import '../Styles/mixins.scss';
 
-$font-size: 1.2rem;
-
-@mixin flex-center($justify-content: center, $align-items: center) {
-  display: flex;
-  justify-content: $justify-content;
-  align-items: $align-items;
-}
-
-@include mobile {
-  .Login .wrap .iphoneImage {
-    display: none;
-  }
-}
-
 .Login {
   .wrap {
     @include flex-center();
@@ -239,5 +225,11 @@ $font-size: 1.2rem;
         font-size: 1.2rem;
       }
     }
+  }
+}
+
+@include mobile {
+  .Login .wrap .iphoneImage {
+    display: none;
   }
 }
