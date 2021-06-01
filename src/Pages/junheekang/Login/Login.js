@@ -31,7 +31,7 @@ class Login extends React.Component {
   render() {
     const { userId, userPassword } = this.state;
     const { handleIdInput, handlePasswordInput } = this;
-    const disabled = userId.includes('@') && userPassword.length > 5;
+    const disabled = userId.includes('@') && userPassword.length >= 5;
 
     return (
       <div className="login">

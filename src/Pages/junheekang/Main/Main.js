@@ -1,8 +1,7 @@
 import React from 'react';
-import '../../junheekang/Main/Main.scss';
 import Nav from '../../../Components/Nav/Nav';
-import CommentInput from '../CommentInput';
-import CommentList from '../CommentList';
+import Comment from '../Comment';
+import './Main.scss';
 
 class Main extends React.Component {
   render() {
@@ -81,7 +80,8 @@ class Main extends React.Component {
                     className="articlePhoto"
                   />
                 </div>
-                <div className="comments">
+                <Comment />
+                {/* <div className="comments">
                   <section className="writtenCommentsContainer">
                     <div className="commentIconWrapper">
                       <div className="leftIcon">
@@ -145,7 +145,7 @@ class Main extends React.Component {
                       <button className="uploadButton">게시</button>
                     </article>
                   </section>
-                </div>
+                </div> */}
               </div>
             </article>
           </div>
