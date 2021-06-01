@@ -4,7 +4,7 @@ import Comment from './Comment';
 class Comments extends React.Component {
   constructor() {
     super();
-    this.state = { defaultInput: '', commentList: [{ text: '' }] };
+    this.state = { defaultInput: '', commentList: [] };
   }
 
   handleInput = event => {
@@ -35,11 +35,13 @@ class Comments extends React.Component {
     }
   };
 
+  componentDidMount = () => {
+    const commentData = this.props.comment;
+    this.setState({ commentList: commentData });
+  };
+
   render() {
     const { defaultInput, commentList } = this.state;
-    // const commentText = commentList.map((el, index) => (
-    //   <li key={index}>{el.text}</li>
-    // ));
     return (
       <>
         <div className="comment-wrapper">
@@ -51,6 +53,7 @@ class Comments extends React.Component {
                   key={index}
                   text={commentItem.text}
                   removeComment={this.removeComment}
+                  isLiked={commentItem.isLiked}
                 />
               ))}
             </ul>

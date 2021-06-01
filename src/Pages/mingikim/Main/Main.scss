@@ -7,62 +7,69 @@
   margin-top: 90px;
   position: relative;
   min-width: 1000px;
-  .feed-container {
+  .main-wrapper {
     display: flex;
-    justify-content: center;
-    width: 50%;
     flex-direction: column;
-    border: $main-border;
-    border-bottom: none;
-    border-radius: 3px;
-    .feed-article {
+    align-items: center;
+    width: 40%;
+    .feed-container {
+      display: flex;
+      justify-content: center;
       width: 100%;
-      .header__component {
-        @include flexSet(flex, space-between, center);
-        padding: 15px 10px;
-        .header-info {
+      flex-direction: column;
+      margin-bottom: 30px;
+      border: $main-border;
+      border-bottom: none;
+      border-radius: 3px;
+      .feed-article {
+        width: 100%;
+        .header__component {
+          @include flexSet(flex, space-between, center);
+          padding: 15px 10px;
+          .header-info {
+            display: flex;
+            align-items: center;
+            img {
+              height: 45px;
+              width: 45px;
+              border-radius: 50%;
+            }
+            .header-info__name {
+              font-size: 20px;
+              padding-left: 10px;
+              font-weight: 600;
+            }
+          }
+        }
+        .feed-image {
+          width: 100%;
+          height: auto;
+        }
+        .feed-icons {
+          display: flex;
+          justify-content: space-between;
+          padding: 0px 10px;
+          margin-top: 10px;
+          .feed-icon .fa-heart {
+            color: red;
+          }
+        }
+        .feed-like {
           display: flex;
           align-items: center;
+          padding: 8px 10px;
           img {
-            height: 45px;
-            width: 45px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
           }
-          .header-info__name {
-            font-size: 20px;
-            padding-left: 10px;
-            font-weight: 600;
-          }
-        }
-      }
-      .feed-image {
-        width: 100%;
-        height: auto;
-      }
-      .feed-icons {
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 10px;
-        margin-top: 10px;
-        .feed-icon .fa-heart {
-          color: red;
-        }
-      }
-      .feed-like {
-        display: flex;
-        align-items: center;
-        padding: 8px 10px;
-        img {
-          height: 30px;
-          width: 30px;
-          border-radius: 50%;
-        }
-        .feed-like__message {
-          font-size: 12px;
-          padding-left: 5px;
-          .feed-like__name,
-          .feed-like__number {
-            font-weight: 600;
+          .feed-like__message {
+            font-size: 12px;
+            padding-left: 5px;
+            .feed-like__name,
+            .feed-like__number {
+              font-weight: 600;
+            }
           }
         }
       }

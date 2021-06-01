@@ -3,22 +3,14 @@ import React from 'react';
 class Comment extends React.Component {
   constructor() {
     super();
-    this.state = { active: true };
   }
-
-  activateButton = event => {
-    this.state.active
-      ? (event.target.style.color = 'red')
-      : (event.target.style.color = '');
-    this.setState({ active: !this.state.active });
-  };
 
   commentRemove = event => {
     this.props.removeComment(event);
   };
 
   render() {
-    const { id, index, text } = this.props;
+    const { id, index, text, isLiked } = this.props;
     return text !== '' ? (
       <div className="comment-box">
         <li key={index}>{text}</li>
@@ -30,7 +22,10 @@ class Comment extends React.Component {
           >
             ✖
           </button>
-          <button className="like-button" onClick={this.activateButton}>
+          <button
+            className="like-button"
+            style={isLiked ? { color: 'red' } : { color: '' }}
+          >
             ❤
           </button>
         </div>
