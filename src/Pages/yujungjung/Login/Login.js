@@ -69,7 +69,7 @@ class Login extends React.Component {
                   <span className="facebookIcon"></span>
                   <span>Facebook으로 로그인</span>
                 </div>
-                <Link href="" className="forgotPassword">
+                <Link href="#" className="forgotPassword">
                   비밀번호를 잊으셨나요?
                 </Link>
               </div>
@@ -77,7 +77,7 @@ class Login extends React.Component {
 
             <article className="findAccont grayBorder">
               <div>계정이 없으신가요?</div>
-              <Link className="sign" href="">
+              <Link className="sign" href="#">
                 가입하기
               </Link>
             </article>
@@ -85,13 +85,13 @@ class Login extends React.Component {
             <article className="downloadApp">
               <div>앱을 다운로드하세요.</div>
               <div className="appButtons">
-                <Link href="">
+                <Link href="#">
                   <img
                     alt="applestoreButton"
                     src="./images/yujungjung/appstore-button.png"
                   />
                 </Link>
-                <Link href="">
+                <Link href="#">
                   <img
                     alt="androidstoreButton"
                     src="./images/yujungjung/googleplay-button.png"
@@ -106,44 +106,44 @@ class Login extends React.Component {
           <div className="Link">
             <ul>
               <li>
-                <Link href="">소개</Link>
+                <Link href="#">소개</Link>
               </li>
               <li>
-                <Link href="">블로그</Link>
+                <Link href="#">블로그</Link>
               </li>
               <li>
-                <Link href="">채용 정보</Link>
+                <Link href="#">채용 정보</Link>
               </li>
               <li>
-                <Link href="">도움말</Link>
+                <Link href="#">도움말</Link>
               </li>
               <li>
-                <Link href="">API</Link>
+                <Link href="#">API</Link>
               </li>
               <li>
-                <Link href="">개인정보처리방침</Link>
+                <Link href="#">개인정보처리방침</Link>
               </li>
               <li>
-                <Link href="">약관</Link>
+                <Link href="#">약관</Link>
               </li>
               <li>
-                <Link href="">인기 계정</Link>
+                <Link href="#">인기 계정</Link>
               </li>
               <li>
-                <Link href="">해시태그</Link>
+                <Link href="#">해시태그</Link>
               </li>
               <li>
-                <Link href="">위치</Link>
+                <Link href="#">위치</Link>
               </li>
             </ul>
           </div>
           <div className="detail">
             <ul>
               <li>
-                <Link href="">한국어</Link>
+                <Link href="#">한국어</Link>
               </li>
               <li>
-                <Link href="">© 2021 Instagram from Facebook</Link>
+                <Link href="#">© 2021 Instagram from Facebook</Link>
               </li>
             </ul>
           </div>

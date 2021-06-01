@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavJung from './NavJung';
-import Comments from './Comments';
+import Feeds from './Feeds';
+// import Comments from './Comments';
 import './Main.scss';
 
 class Main extends React.Component {
@@ -10,17 +11,19 @@ class Main extends React.Component {
     this.state = {
       commentList: [],
       commentValue: '',
+      feedList: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
+    fetch('http://localhost:3000/data/feeds.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          commentList: data,
+          feedList: data,
+          commentList: data[0].comment,
         });
       });
   }
@@ -33,6 +36,7 @@ class Main extends React.Component {
 
   addComment = e => {
     e.preventDefault();
+    console.log(e.target);
     const { commentList, commentValue } = this.state;
     this.setState({
       commentList: [
@@ -49,7 +53,8 @@ class Main extends React.Component {
   };
 
   render() {
-    const { commentList, commentValue } = this.state;
+    const { commentList, commentValue, feedList } = this.state;
+    const { handleCommentValue, addComment } = this;
 
     return (
       <div className="Main">
@@ -69,93 +74,21 @@ class Main extends React.Component {
                   <div className="userid">Yujung</div>
                 </div>
               </div>
-              <article className="borderBox">
-                <div className="postHeader">
-                  <div className="user">
-                    <div className="smallprofile">
-                      <img
-                        className="smallprofilephoto"
-                        alt="smallprofile"
-                        src="/images/yujungjung/mingky.jpg"
-                      />
-                    </div>
-                    <div className="bolduserid">Yujung</div>
-                  </div>
-                  <img
-                    className="viewMore"
-                    alt="viewMoreButton"
-                    src="/images/yujungjung/more.png"
+              {feedList.map(feed => {
+                return (
+                  <Feeds
+                    id={feed.id}
+                    profileImage={feed.profileImage}
+                    postImage={feed.postImage}
+                    postComment={feed.postComment}
+                    postWriteuserName={feed.postWriteuserName}
+                    commentList={commentList}
+                    commentValue={commentValue}
+                    handleCommentValue={handleCommentValue}
+                    addComment={addComment}
                   />
-                </div>
-                <img
-                  className="postPhoto"
-                  alt="postPhoto"
-                  src="/images/yujungjung/cafe.jpg"
-                />
-                <div className="postComments">
-                  <div className="postSetting">
-                    <ul className="icons">
-                      <li className="icon">
-                        <img alt="likes" src="/images/yujungjung/heart.png" />
-                      </li>
-                      <li className="icon">
-                        <img alt="comments" src="/images/yujungjung/chat.png" />
-                      </li>
-                      <li className="icon">
-                        <img alt="share" src="/images/yujungjung/send.png" />
-                      </li>
-                    </ul>
-                    <div className="postPhotoDots"></div>
-                    <div className="icon bookmark">
-                      <img
-                        src="/images/yujungjung/bookmark_white.png"
-                        alt="bookmark"
-                      />
-                    </div>
-                  </div>
-                  <div className="likeCount">좋아요 100개</div>
-                  <div className="comment">
-                    <span className="bolduserid">Yujung</span>
-                    <span>카페에 가서 여유를 즐기고싶어😂😂</span>
-                  </div>
-                  <div className="commentsCount">댓글 5개 모두 보기</div>
-
-                  <ul className="comments">
-                    {commentList.map(comment => {
-                      return (
-                        <Comments
-                          key={comment.id}
-                          onClick={this.changeColor}
-                          name={comment.userName}
-                          comment={comment.content}
-                        />
-                      );
-                    })}
-                  </ul>
-                  <div className="postingDate">1시간 전</div>
-                  <div className="line"></div>
-                  <div className="newCommentBox">
-                    <div className="emoji">
-                      <img alt="emojiBox" src="/images/yujungjung/smile.png" />
-                    </div>
-                    <form onSubmit={this.addComment}>
-                      <input
-                        onChange={this.handleCommentValue}
-                        type="text"
-                        className="newComment"
-                        placeholder="댓글달기..."
-                        value={commentValue}
-                      ></input>
-                    </form>
-                    <button
-                      className={commentValue ? 'blue' : 'bluenone'}
-                      onClick={commentValue ? this.addComment : ''}
-                    >
-                      게시
-                    </button>
-                  </div>
-                </div>
-              </article>
+                );
+              })}
             </div>
             <div className="profile">
               <div className="myProfile">
@@ -184,7 +117,7 @@ class Main extends React.Component {
                       />
                     </div>
                     <div>
-                      <Link className="bolduserid" href="">
+                      <Link className="bolduserid" href="#">
                         새소년
                       </Link>
                       <div className="followInfo">
@@ -198,37 +131,37 @@ class Main extends React.Component {
               <footer>
                 <ul>
                   <li>
-                    <Link href="">소개</Link>
+                    <Link href="#">소개</Link>
                   </li>
                   <li>
-                    <Link href="">도움말</Link>
+                    <Link href="#">도움말</Link>
                   </li>
                   <li>
-                    <Link href="">홍보 센터</Link>
+                    <Link href="#">홍보 센터</Link>
                   </li>
                   <li>
-                    <Link href="">API</Link>
+                    <Link href="#">API</Link>
                   </li>
                   <li>
-                    <Link href="">채용 정보</Link>
+                    <Link href="#">채용 정보</Link>
                   </li>
                   <li>
-                    <Link href="">개인정보처리방침</Link>
+                    <Link href="#">개인정보처리방침</Link>
                   </li>
                   <li>
-                    <Link href="">약관</Link>
+                    <Link href="#">약관</Link>
                   </li>
                   <li>
-                    <Link href="">위치</Link>
+                    <Link href="#">위치</Link>
                   </li>
                   <li>
-                    <Link href="">인기 계정</Link>
+                    <Link href="#">인기 계정</Link>
                   </li>
                   <li>
-                    <Link href="">해시태크</Link>
+                    <Link href="#">해시태크</Link>
                   </li>
                   <li>
-                    <Link href="">언어</Link>
+                    <Link href="#">언어</Link>
                   </li>
                 </ul>
                 <div className="mainInfo">© 2021 Instagram from Facebook</div>

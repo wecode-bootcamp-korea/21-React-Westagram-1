@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "profileImage": "/images/yujungjung/mingky.jpg",
+    "postWriteuserName": "Yujung",
+    "postImage": "/images/yujungjung/cafe.jpg",
+    "postComment": "카페에 가서 여유를 즐기고싶어😂😂",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "Yujung",
+        "content": "Welcome??😂 코딩 왜 이렇게 힘들까요?",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "UlongCha",
+        "content": "그러게요 언제 완성 시킬 수 있을까요?",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "profileImage": "/images/yujungjung/wecode.jpg",
+    "postWriteuserName": "wecode",
+    "postImage": "/images/yujungjung/wecode.jpg",
+    "postComment": "wecode에서 같이 코딩해봐요!",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "UlongCha",
+        "content": "도오전~",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "wecode",
+        "content": "도전! 도전!",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "Yujung",
+        "content": "도전,,,",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "profileImage": "/images/yujungjung/memogi_heart.png",
+    "postWriteuserName": "Ulongcha",
+    "postImage": "images/yujungjung/insideWecode.jpg",
+    "postComment": "여긴 창살없는 지옥?",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "Yujung",
+        "content": "구름만 이쁘구나😥",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "wecode",
+        "content": "열심히하면 모든 곳이 이뻐 보일꺼예요",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "UlongCha",
+        "content": "과연,,?",
+        "isLiked": false
+      }
+    ]
+  }
+]
