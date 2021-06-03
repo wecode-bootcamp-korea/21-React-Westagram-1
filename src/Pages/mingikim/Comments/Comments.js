@@ -4,56 +4,41 @@ import Comment from './Comment';
 class Comments extends React.Component {
   constructor() {
     super();
-    this.state = { defaultInput: '', commentList: [] };
   }
 
-  handleInput = event => {
-    this.setState({ defaultInput: event.target.value });
+  textInput = event => {
+    this.props.handleInput(event);
   };
 
-  removeComment = event => {
-    let removeArr = this.state.commentList;
-    const arr1 = removeArr.filter((_, index) => {
-      return index !== parseInt(event.target.id);
-    });
-    this.setState({ commentList: arr1 });
-  };
-
-  addComment = () => {
-    let commentArr = this.state.commentList;
-    commentArr.push({ text: this.state.defaultInput });
-    this.setState({
-      defaultInput: '',
-      commentList: commentArr,
-    });
+  commentAdd = () => {
+    const { feedId, addComment } = this.props;
+    addComment(feedId);
   };
 
   handleEnter = event => {
-    if (event.key === 'Enter') {
-      this.setState({ defaultInput: event.target.value });
-      this.addComment();
-    }
-  };
-
-  componentDidMount = () => {
-    const commentData = this.props.comment;
-    this.setState({ commentList: commentData });
+    this.props.handlePost(event);
   };
 
   render() {
-    const { defaultInput, commentList } = this.state;
+    const { comments, defaultInput, feedId, removeComment, handleLike } =
+      this.props;
     return (
       <>
         <div className="comment-wrapper">
           <div className="comment-container">
             <ul className="comment-list">
-              {commentList.map((commentItem, index) => (
+              {comments.map((commentItem, index) => (
                 <Comment
-                  id={index}
+                  id={feedId}
                   key={index}
                   text={commentItem.text}
-                  removeComment={this.removeComment}
+                  removeComment={() => {
+                    removeComment(feedId, commentItem);
+                  }}
                   isLiked={commentItem.isLiked}
+                  handleLike={() => {
+                    handleLike(feedId, commentItem);
+                  }}
                 />
               ))}
             </ul>
@@ -65,11 +50,12 @@ class Comments extends React.Component {
             type="text"
             className="input-comment"
             placeholder="댓글달기..."
-            onChange={this.handleInput}
+            onChange={this.textInput}
             onKeyPress={this.handleEnter}
-            value={defaultInput}
+            id={feedId}
+            value={defaultInput[feedId - 1]}
           />
-          <button className="article-input__button" onClick={this.addComment}>
+          <button className="article-input__button" onClick={this.commentAdd}>
             게시
           </button>
         </div>

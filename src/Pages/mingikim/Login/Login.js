@@ -12,7 +12,27 @@ class Login extends React.Component {
     this.setState({ [inputedName]: inputedValue });
   };
   goToMain = () => {
-    this.props.history.push('/main-kim');
+    fetch(`http://10.58.6.15:8000/users/login`, {
+      method: 'post',
+      body: JSON.stringify({
+        user_email: this.state.id,
+        password: this.state.pw,
+        user_name: 'oki',
+        phone_number: '010-7344-1234',
+      }),
+    })
+      .then(response => response.json())
+      .then(
+        result => {
+          if (result.message === 'LOGIN SUCCESS!!!') {
+            this.props.history.push('/main-kim');
+          }
+        }
+        // result.message === 'LOGIN SUCCESS!!!'
+        //   ? this.props.history.push('/main-kim')
+        //   : alert('아이디와 비밀번호를 확인해주세요!')
+      );
+    // this.props.history.push('/main-kim');
   };
   render() {
     return (
@@ -20,7 +40,7 @@ class Login extends React.Component {
         <div className="login-wrapper">
           <div className="login-box">
             <h1 className="logo">Westagram</h1>
-            <form className="login-box__form">
+            <div className="login-box__form">
               <input
                 type="text"
                 className="id input"
@@ -36,7 +56,7 @@ class Login extends React.Component {
                 onChange={this.handleChange}
               />
               <button
-                type="submit"
+                // type="submit"
                 className="login-box__button"
                 disabled={
                   !(this.state.id.includes('@') && this.state.pw.length > 5)
@@ -45,7 +65,7 @@ class Login extends React.Component {
               >
                 로그인
               </button>
-            </form>
+            </div>
           </div>
           <div className="forgot-box">
             <Link to="/signup" className="forgot-box__message">

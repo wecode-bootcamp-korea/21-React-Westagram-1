@@ -3,7 +3,19 @@ import Comments from '../../Pages/mingikim/Comments/Comments';
 
 class Feed extends React.Component {
   render() {
-    const { currentUser, feedContent, index, comment } = this.props;
+    const {
+      currentUser,
+      feedContent,
+      feedId,
+      index,
+      comments,
+      handleInput,
+      handlePost,
+      defaultInput,
+      addComment,
+      removeComment,
+      handleLike,
+    } = this.props;
     return (
       <div className="feed-container" key={index}>
         <article className="feed-article">
@@ -44,7 +56,16 @@ class Feed extends React.Component {
             <div className="main-article">
               <span>{feedContent}</span>
             </div>
-            <Comments comment={comment} />
+            <Comments
+              comments={comments}
+              feedId={feedId}
+              handleInput={handleInput}
+              handlePost={handlePost}
+              addComment={addComment}
+              removeComment={removeComment}
+              defaultInput={defaultInput}
+              handleLike={handleLike}
+            />
           </div>
         </article>
       </div>

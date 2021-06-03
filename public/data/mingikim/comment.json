@@ -1,9 +1,10 @@
 [
   {
+    "feedId": 1,
     "currentUser": "muyaho",
     "feedImage": "",
     "feedContent": "muyaho1",
-    "comment": [
+    "comments": [
       {
         "id": 1,
         "userName": "wecode",
@@ -25,10 +26,11 @@
     ]
   },
   {
+    "feedId": 2,
     "currentUser": "doge",
     "feedImage": "",
     "feedContent": "muyaho2",
-    "comment": [
+    "comments": [
       {
         "id": 1,
         "userName": "joonsikyang",
@@ -50,10 +52,11 @@
     ]
   },
   {
+    "feedId": 3,
     "currentUser": "nico",
     "feedImage": "",
     "feedContent": "muyaho3",
-    "comment": [
+    "comments": [
       {
         "id": 1,
         "userName": "wecode",
