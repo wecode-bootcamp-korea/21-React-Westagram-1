@@ -1,0 +1,351 @@
+@import '../Styles/mixins.scss';
+
+.Main {
+  nav {
+    @include flex-center();
+    width: 100%;
+    padding: 0.6rem;
+    background-color: white;
+    border: 1px solid #eaeaea;
+
+    .mainWrap {
+      @include flex-center(space-between);
+      width: 97.5rem;
+      height: 100%;
+      padding: 0 2rem;
+    }
+
+    #logo {
+      font-family: 'Lobster', cursive;
+      font-size: 2.8rem;
+    }
+
+    .searchBox {
+      @include flex-center();
+      width: 21.5rem;
+      height: 2.8rem;
+      padding: 0 1rem;
+      border: 1px solid #e4e4e4;
+      background-color: #fafafa;
+
+      img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-right: 0.5rem;
+        opacity: 0.5;
+      }
+
+      input {
+        width: 20%;
+        border: 0px;
+        background-color: #ffffff00;
+      }
+    }
+  }
+
+  .icons {
+    @include flex-center(space-between, center);
+
+    @at-root .icon > img {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 2.2rem;
+    }
+  }
+
+  .bookmark > img {
+    margin-right: 0rem;
+  }
+  // margin이 먹질않는다
+
+  .myAccount > img {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 100%;
+  }
+
+  section {
+    @include flex-center(center, initial);
+
+    .separateWrap {
+      @include flex-center(center, flex-start);
+
+      .mainContents {
+        width: 61.4rem;
+        margin: 4rem 2rem 0 0;
+
+        .storiesBox {
+          @include flex-center(space-between, center);
+          padding: 2rem 1.4rem 1.4rem;
+
+          @at-root .borderBox {
+            margin-bottom: 2rem;
+            border: 1px solid #eaeaea;
+            border-radius: 3px;
+            background-color: white;
+
+            .story {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              @at-root .colorfulCircle {
+                @include flex-center();
+                position: relative;
+                width: 6.6rem;
+                height: 6.6rem;
+                background: linear-gradient(120deg, #c82d8e 0%, #f99d4c 100%);
+                border-radius: 100%;
+
+                @at-root .profilePhoto {
+                  width: 6.2rem;
+                  height: 6.2rem;
+                  border: 2px solid white;
+                  border-radius: 100%;
+                }
+
+                @at-root .userid {
+                  margin-top: 0.5rem;
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .postHeader {
+    @include flex-center(space-between, center);
+    height: 6rem;
+    padding: 2rem;
+
+    .user {
+      @include flex-center(initial, center);
+
+      @at-root .smallprofile {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.2rem;
+        height: 4.2rem;
+        margin-right: 10px;
+        background: linear-gradient(120deg, #c82d8e 0%, #f99d4c 100%);
+        border-radius: 100%;
+
+        @at-root.smallprofilephoto {
+          position: absolute;
+          width: 3.8rem;
+          height: 3.8rem;
+          border: 0.2rem solid white;
+          border-radius: 100%;
+        }
+
+        @at-root.bolduserid {
+          flex: 1;
+          margin-right: 1rem;
+          font-size: 1.4rem;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .viewMore {
+      width: 2.2rem;
+      height: 2rem;
+    }
+  }
+
+  .postPhoto {
+    width: 100%;
+    height: 55rem;
+  }
+
+  .postComments {
+    padding: 1rem 2rem 0;
+
+    div {
+      padding: 0.4rem 0;
+      font-size: 1.4rem;
+    }
+
+    .postSetting {
+      @include flex-center(space-between, center);
+
+      .likeCount {
+        font-weight: bold;
+      }
+    }
+
+    li {
+      display: flex;
+      font-size: 1.4rem;
+
+      .comment {
+        flex: 9;
+      }
+
+      .likeWhiteHeart {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-top: 0.8rem;
+      }
+    }
+    .postingDate {
+      padding-top: 1rem;
+      font-size: 1rem;
+      color: gray;
+      padding: 0rem;
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background: #eaeaea;
+      padding: 0rem;
+      margin-top: 1.4rem;
+    }
+    .newCommentBox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 6rem;
+
+      .emoji > img {
+        width: 2.6rem;
+        height: 2.6rem;
+      }
+
+      .newComment {
+        width: 47rem;
+        height: 1.8rem;
+        border: 0rem;
+        resize: none;
+        overflow: hidden;
+      }
+
+      button {
+        border: 0px;
+        background: #ffffff00;
+      }
+    }
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .myProfile {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+
+    .colorfulCircle {
+      margin-right: 1rem;
+    }
+  }
+
+  .accountChage,
+  .follow {
+    flex: 1;
+    text-align: right;
+  }
+
+  .blue {
+    color: #0095f6;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: -0.09rem;
+    cursor: pointer;
+  }
+  .blueNone {
+    color: #0094f688;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: -0.09rem;
+  }
+
+  .recommedUserBox {
+    .recommedTitle {
+      @include flex-center(space-between, center);
+
+      .recommedText {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #8e8e8e;
+      }
+
+      .allView {
+        font-size: 1.2rem;
+      }
+    }
+
+    ul {
+      padding: 1rem 0;
+
+      li {
+        @include flex-center(initial, center);
+
+        .followInfo {
+          font-size: 1.2rem;
+          color: #8e8e8e;
+          letter-spacing: -0.09rem;
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: 3rem;
+
+    ul {
+      margin: 1rem 0;
+      li {
+        &:nth-last-child(1) > a::after {
+          content: '';
+        }
+
+        a {
+          color: #c7c7c7;
+          font-size: 1.1rem;
+          font-weight: 400;
+          letter-spacing: -0.08rem;
+          line-height: 1;
+
+          &::after {
+            content: '·';
+            font-size: 1.1rem;
+            margin: 0.5rem;
+          }
+        }
+      }
+    }
+    .mainInfo {
+      color: #c7c7c7;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: -0.08rem;
+      line-height: 1;
+    } // 위 a태그랑 속성이 겹침
+  }
+}
+
+@include tablet-S {
+  .Main nav .searchBox {
+    display: none;
+  }
+
+  .separateWrap .postComments .newCommentBox {
+    display: none;
+  }
+}
+
+@include tablet-M {
+  .separateWrap .profile {
+    display: block;
+    width: 29.3rem;
+    margin: 4rem 0;
+  }
+}

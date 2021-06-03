@@ -1,0 +1,28 @@
+$breakpoint-mobile-S: 640px;
+$breakpoint-tablet-S: 875px;
+$breakpoint-tablet-M: 1000px;
+$font-size: 1.2rem;
+
+@mixin flex-center($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile-S}) {
+    @content;
+  }
+}
+
+@mixin tablet-S {
+  @media screen and (max-width: #{$breakpoint-tablet-S - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-M {
+  @media screen and (min-width: #{$breakpoint-tablet-M}) {
+    @content;
+  }
+}

@@ -1,0 +1,235 @@
+@import '../Styles/mixins.scss';
+
+.Login {
+  .wrap {
+    @include flex-center();
+    padding-top: 6rem;
+  }
+
+  section {
+    width: 35rem;
+    margin: 1.1rem 0;
+  }
+
+  .iphoneImage {
+    width: 45rem;
+  }
+
+  .grayBorder {
+    margin: 1rem 0;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+  }
+
+  .loginSection {
+    @include flex-center();
+    flex-direction: column;
+    height: 38rem;
+    margin-top: 3rem;
+
+    #logo {
+      margin: 2.6rem 0;
+      font: {
+        family: 'Lobster', cursive;
+        size: 4.4rem;
+      }
+    }
+
+    .loginBox {
+      @include flex-center(center, initial);
+      flex-direction: column;
+      width: 78%;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      .loginCotentsBox {
+        position: relative;
+        width: 100%;
+        height: 3.8rem;
+        padding: 0 1rem;
+        margin-bottom: 0.8rem;
+        background: #fafafa;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        text-align: left;
+
+        &.focusActive {
+          border: 1px solid #8e8e8e !important;
+        }
+
+        span {
+          font-size: 1.2rem;
+          line-height: 3.7rem;
+          color: #8e8e8e;
+
+          &.placeholderActive {
+            font-size: 1rem;
+            line-height: 2rem;
+          }
+        }
+
+        input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          margin: 0 1rem;
+          font-size: 1.6rem;
+          border: 0;
+          background-color: #ffffff00;
+
+          &.writeActive {
+            margin: 0.8rem 1rem !important;
+            font-size: 1.2rem !important;
+          }
+
+          .password {
+            &.viewActive {
+              display: block;
+            }
+          }
+        }
+
+        .passwordViewButton {
+          position: absolute;
+          top: 0;
+          display: none;
+          right: 1rem;
+          border: 0;
+          background: #ffffff00;
+          color: #262626;
+          font: {
+            size: 1.4rem;
+            weight: bold;
+          }
+          line-height: 3.7rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .loginButton {
+      width: 100%;
+      height: 3rem;
+      margin: 1rem 0;
+      background-color: #0095f6;
+      border: 0px;
+      border-radius: 3px;
+      font: {
+        size: 1.4rem;
+        weight: bold;
+      }
+      color: white;
+      &:disabled {
+        background-color: #0094f673;
+      }
+    }
+
+    .or {
+      display: flex;
+      margin: 1.4rem 0;
+
+      .orBorder {
+        width: 40%;
+        height: 1px;
+        background-color: #dbdbdb;
+      }
+
+      .orText {
+        margin: 0 1rem;
+        font-size: $font-size;
+        font-weight: bold;
+        line-height: 0.2;
+        color: #8e8e8e;
+      }
+    }
+
+    .facebookLogin {
+      margin: 1rem 0;
+      color: #385185;
+      font-weight: bold;
+      cursor: pointer;
+
+      .facebookIcon {
+        display: inline-block;
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-right: 0.3rem;
+        background: {
+          position: -414px -259px;
+          repeat: no-repeat;
+          image: url(https://www.instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png);
+        }
+      }
+
+      span {
+        font-size: $font-size;
+      }
+    }
+
+    .forgotPassword {
+      margin: 1rem 0;
+      font-size: $font-size;
+    }
+  }
+
+  .findAccont {
+    @include flex-center();
+    flex-direction: row;
+    padding: 2rem;
+
+    div,
+    a {
+      font-size: 1.4rem;
+    }
+
+    .sign {
+      margin-left: 0.5rem;
+      color: #0095f6;
+      font-weight: bold;
+    }
+  }
+
+  .downloadApp {
+    margin: 2rem 0;
+    text-align: center;
+
+    div {
+      font-size: 1.4rem;
+    }
+
+    .appButtons {
+      @include flex-center();
+
+      img {
+        width: 14rem;
+        margin: 2rem 0.5rem;
+      }
+    }
+  }
+
+  footer {
+    @include flex-center();
+    flex-direction: column;
+    margin-top: 8rem;
+
+    .link,
+    .detail {
+      @include flex-center();
+      margin: 1rem 0;
+
+      a {
+        padding: 0.8rem;
+        color: #8e8e8e;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .Login .wrap .iphoneImage {
+    display: none;
+  }
+}
