@@ -1,0 +1,174 @@
+@import '../Styles/common.scss';
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 90px;
+  position: relative;
+  min-width: 1000px;
+
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+
+    .feed-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 30px;
+      border: $main-border;
+      border-bottom: none;
+      border-radius: 3px;
+
+      .feed-article {
+        width: 100%;
+
+        .header__component {
+          @include flexSet(flex, space-between, center);
+          padding: 15px 10px;
+
+          .header-info {
+            display: flex;
+            align-items: center;
+
+            img {
+              height: 45px;
+              width: 45px;
+              border-radius: 50%;
+            }
+
+            .header-info__name {
+              font-size: 20px;
+              padding-left: 10px;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .feed-image {
+          width: 100%;
+        }
+
+        .feed-icons {
+          display: flex;
+          justify-content: space-between;
+          padding: 0px 10px;
+          margin-top: 10px;
+          .feed-icon .fa-heart {
+            color: red;
+          }
+        }
+
+        .feed-like {
+          display: flex;
+          align-items: center;
+          padding: 8px 10px;
+
+          img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+          }
+
+          .feed-like__message {
+            font-size: 12px;
+            padding-left: 5px;
+            .feed-like__name,
+            .feed-like__number {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.feed-article__main {
+  border-bottom: $main-border;
+  .main-article {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+
+  .comment-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .comment-container {
+      @include flexSet(flex, space-between, center);
+      font-size: 6px;
+      padding-left: 10px;
+
+      .comment-list {
+        width: 100%;
+
+        .comment-box {
+          @include flexSet(flex, space-between, center);
+          font-size: 12px;
+          width: 100%;
+          line-height: 3px;
+
+          &:first-child {
+            margin-top: 15px;
+          }
+
+          .like-button {
+            padding-right: 10px;
+            font-size: 15px;
+            background: none;
+            border: none;
+            opacity: 0.5;
+          }
+
+          .delete-button {
+            padding-right: 5px;
+            font-size: 15px;
+            background: none;
+            border: none;
+            color: $dark-gray;
+            opacity: 0.5;
+          }
+
+          .delete-button:hover {
+            color: red;
+          }
+        }
+      }
+    }
+
+    .time-stamp {
+      margin-top: 15px;
+      padding-left: 10px;
+      font-weight: 500;
+      font-size: 10px;
+      opacity: 0.5;
+    }
+  }
+
+  .feed-article__input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px 12px;
+
+    .input-comment {
+      width: 80%;
+      margin-right: 25px;
+      outline: none;
+      border: none;
+      font-size: 14px;
+    }
+
+    .article-input__button {
+      padding: 0;
+      font-size: 14px;
+      border: none;
+      background: none;
+      color: #0095f6;
+    }
+  }
+}
