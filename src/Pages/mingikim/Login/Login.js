@@ -1,16 +1,19 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import './Login.scss';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { id: '', pw: '' };
   }
+
   handleChange = event => {
     const inputedName = event.target.name;
     const inputedValue = event.target.value;
     this.setState({ [inputedName]: inputedValue });
   };
+
   goToMain = () => {
     fetch(`http://10.58.6.15:8000/users/login`, {
       method: 'post',
@@ -22,18 +25,13 @@ class Login extends React.Component {
       }),
     })
       .then(response => response.json())
-      .then(
-        result => {
-          if (result.message === 'LOGIN SUCCESS!!!') {
-            this.props.history.push('/main-kim');
-          }
+      .then(result => {
+        if (result.message === 'LOGIN SUCCESS!!!') {
+          this.props.history.push('/main-kim');
         }
-        // result.message === 'LOGIN SUCCESS!!!'
-        //   ? this.props.history.push('/main-kim')
-        //   : alert('아이디와 비밀번호를 확인해주세요!')
-      );
-    // this.props.history.push('/main-kim');
+      });
   };
+
   render() {
     return (
       <main className="login-container">

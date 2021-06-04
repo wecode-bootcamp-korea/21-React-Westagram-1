@@ -2,26 +2,17 @@ import React from 'react';
 import Comment from './Comment';
 
 class Comments extends React.Component {
-  constructor() {
-    super();
-  }
-
-  textInput = event => {
-    this.props.handleInput(event);
-  };
-
-  commentAdd = () => {
-    const { feedId, addComment } = this.props;
-    addComment(feedId);
-  };
-
-  handleEnter = event => {
-    this.props.handlePost(event);
-  };
-
   render() {
-    const { comments, defaultInput, feedId, removeComment, handleLike } =
-      this.props;
+    const {
+      comments,
+      defaultInput,
+      feedId,
+      removeComment,
+      handleLike,
+      handleInput,
+      handlePost,
+      addComment,
+    } = this.props;
     return (
       <>
         <div className="comment-wrapper">
@@ -50,12 +41,15 @@ class Comments extends React.Component {
             type="text"
             className="input-comment"
             placeholder="댓글달기..."
-            onChange={this.textInput}
-            onKeyPress={this.handleEnter}
+            onChange={event => handleInput(event)}
+            onKeyPress={event => handlePost(event)}
             id={feedId}
             value={defaultInput[feedId - 1]}
           />
-          <button className="article-input__button" onClick={this.commentAdd}>
+          <button
+            className="article-input__button"
+            onClick={() => addComment(feedId)}
+          >
             게시
           </button>
         </div>
