@@ -102,8 +102,14 @@ $commonBorder: 1px solid #dbdbdb;
     width: 100%;
   }
 
+  .feed {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   .feeds {
-    margin-right: 30px;
+    margin: 0px 30px 50px 0px;
 
     .feedsWrapper {
       display: flex;
@@ -193,6 +199,7 @@ $commonBorder: 1px solid #dbdbdb;
 
     .writtenCommentsContainer {
       width: 600px;
+      padding-bottom: 10px;
       border: $commonBorder;
       border-top: none;
       background-color: white;
@@ -239,18 +246,23 @@ $commonBorder: 1px solid #dbdbdb;
       display: inline;
     }
 
-    .commentText {
+    .inputText {
       width: 500px;
       border: none;
       outline: none;
       margin-left: 14px;
     }
 
+    .commentText {
+      font-size: 14px;
+    }
+
     .commentContent {
-      display: inline;
-      margin-bottom: 5px;
+      display: inlineblock;
+      margin-bottom: 7px;
       font-weight: 400;
       color: #252529;
+      font-size: 14px;
     }
 
     .myCommentId {
@@ -258,10 +270,13 @@ $commonBorder: 1px solid #dbdbdb;
       text-decoration: none;
       color: #252529;
       font-weight: 600;
+      font-size: 14px;
+      margin-left: 16px;
     }
 
     .myCommentId:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
 
     .myCommentWrapper {

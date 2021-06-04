@@ -1,153 +1,74 @@
 import React from 'react';
 import Nav from '../../../Components/Nav/Nav';
-import Comment from '../Comment';
+import Feed from '../Feed';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      feedList: [],
+      commentValue: '',
+    };
+  }
+
+  addComment = (e, feedId, commentValue, reset) => {
+    e.preventDefault();
+    const { feedList } = this.state;
+
+    const list = feedList.map(feed => {
+      if (feed.feedId === feedId) {
+        feed.commentList = [
+          ...feed.commentList,
+          {
+            id: feed.commentList.length + 1,
+            userName: 'juneee_kang',
+            content: commentValue,
+            isLiked: false,
+          },
+        ];
+      }
+      return feed;
+    });
+
+    this.setState({ feedList: list }, reset);
+  };
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feedList: data,
+        });
+      });
+  }
+
   render() {
+    const { feedList, commentValue } = this.state;
     return (
       <div className="main">
         <Nav />
-        {/* <nav>
-          <div className="navContainer">
-            <a href="#" id="logo">
-              Westagram
-            </a>
-            <div className="searchWrapper">
-              <input
-                type="text"
-                name="input1"
-                id="searchInput"
-                placeholder="검색"
-              />
-            </div>
-            <div className="iconWrapper">
-              <img
-                src="/images/junheekang/icon/Home.svg"
-                alt="home_icon"
-                className="iconSet"
-              />
-              <img
-                src="/images/junheekang/icon/share.svg"
-                alt="directmessage-icon"
-                className="iconSet"
-              />
-              <img
-                src="/images/junheekang/icon/nav.svg"
-                alt="explore-icon"
-                className="iconSet"
-              />
-              <img
-                src="/images/junheekang/icon/heart.svg"
-                alt="heart-icon"
-                className="iconSet"
-              />
-              <img
-                src="/images/junheekang/my_profile.png"
-                alt="my-Profile"
-                className="iconSet"
-              />
-            </div>
-          </div>
-        </nav> */}
         <main>
-          <div className="feeds">
-            <article className="feedsWrapper">
-              <div>
-                <header>
-                  <div className="feedProfileWrapper">
-                    <img
-                      src="/images/junheekang/sohee_profile.png"
-                      alt="Profile"
-                      className="feedProfile"
-                    />
-                  </div>
-                  <div className="articleHeaderWrapper">
-                    <a href="#" className="userId">
-                      xeesoxee
-                    </a>
-                    <img
-                      src="/images/junheekang/icon/more.svg"
-                      alt="more-icon"
-                      className="iconSet"
-                    />
-                  </div>
-                </header>
-                <div className="photoWrapper">
-                  <img
-                    src="/images/junheekang/한소희.png"
-                    alt="article-photo"
-                    className="articlePhoto"
-                  />
-                </div>
-                <Comment />
-                {/* <div className="comments">
-                  <section className="writtenCommentsContainer">
-                    <div className="commentIconWrapper">
-                      <div className="leftIcon">
-                        <img
-                          src="/images/junheekang/icon/heart.svg"
-                          alt="heart-icon"
-                          className="iconSet"
-                        />
-                        <img
-                          src="/images/junheekang/icon/messenger.svg"
-                          alt="comment-icon2"
-                          className="iconSet"
-                        />
-                        <img
-                          src="/images/junheekang/icon/share.svg"
-                          alt="directmessage-icon"
-                          className="iconSet"
-                        />
-                      </div>
-                      <div>
-                        <img
-                          src="/images/junheekang/icon/bookmark.svg"
-                          alt="bookmark-icon"
-                          className="iconSet"
-                        />
-                      </div>
-                    </div>
-                    <div className="writtenInfo">
-                      <a href="#" className="otheruserId">
-                        july_thefirst
-                      </a>
-                      <span className="textContent">
-                        님 여러 명이 좋아합니다
-                      </span>
-                      <div className="userComment">
-                        <a href="#" id="userIdinComment">
-                          xeesoxee
-                        </a>
-                        <span className="textContent">다시 만난 소희🦋</span>
-                      </div>
-                      <p id="commentNum">댓글 1,706개 모두 보기</p>
-                      <article className="addComment">
-                        <ul className="listContainer">
-                          <li className="commentContent"></li>
-                        </ul>
-                      </article>
-                    </div>
-                  </section>
-                  <section className="commentContainer">
-                    <img
-                      src="/images/junheekang/icon/smile.svg"
-                      alt="smile_emoji"
-                      className="iconSet"
-                    />
-                    <article className="commentInputWrapper">
-                      <input
-                        name=""
-                        className="commentText"
-                        placeholder="댓글 달기..."
-                      ></input>
-                      <button className="uploadButton">게시</button>
-                    </article>
-                  </section>
-                </div> */}
-              </div>
-            </article>
+          <div className="feed">
+            {feedList.map(feed => {
+              return (
+                <Feed
+                  key={feed.feedId}
+                  feedId={feed.feedId}
+                  feedUserName={feed.feedUserName}
+                  feedUserProfile={feed.feedUserProfile}
+                  feedPhoto={feed.feedPhoto}
+                  feedUserText={feed.feedUserText}
+                  commentList={feed.commentList}
+                  handleCommentValue={this.handleCommentValue}
+                  addComment={this.addComment}
+                  commentValue={commentValue}
+                />
+              );
+            })}
           </div>
           <aside className="aside">
             <div className="myProfileContanier">

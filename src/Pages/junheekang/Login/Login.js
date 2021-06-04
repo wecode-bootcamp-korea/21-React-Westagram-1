@@ -3,10 +3,6 @@ import { withRouter } from 'react-router-dom';
 import '../../junheekang/Login/Login.scss';
 
 class Login extends React.Component {
-  goToMain = () => {
-    this.props.history.push('/main-kang');
-  };
-
   constructor() {
     super();
 
@@ -15,6 +11,19 @@ class Login extends React.Component {
       userPassword: '',
     };
   }
+
+  goToMain = () => {
+    // this.props.history.push('/main-kang');
+    fetch('http://10.58.6.157:8000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.userId,
+        password: this.state.userPassword,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과:', result));
+  };
 
   handleIdInput = e => {
     this.setState({
