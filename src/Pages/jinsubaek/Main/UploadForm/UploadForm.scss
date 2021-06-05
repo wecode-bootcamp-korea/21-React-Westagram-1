@@ -1,7 +1,7 @@
-@import '../../../Pages/jinsubaek/Styles/common.scss';
+@import '../../Styles/common.scss';
 
-.UploadForm {
-  @include setFlex(stretch);
+.uploadForm {
+  @include setFlex(flex-start);
   position: relative;
   height: 45px;
   border: none;

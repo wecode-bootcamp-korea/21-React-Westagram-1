@@ -1,13 +1,13 @@
-@import '../../../Pages/jinsubaek/Styles/common.scss';
+@import '../../Styles/common.scss';
 
-.Feed {
+.feed {
   max-width: 600px;
   margin-left: 20px;
   margin-bottom: 20px;
   border: 1px solid #e6e6e6;
 
   .title {
-    @include setFlex(stretch);
+    @include setFlex(flex-start);
     position: relative;
     height: 60px;
     padding: 0 15px;
@@ -35,7 +35,7 @@
   }
 
   .tab {
-    @include setFlex(stretch);
+    @include setFlex(flex-start);
     position: relative;
     height: 40px;
 
@@ -57,13 +57,13 @@
       width: 20px;
       height: 20px;
       margin-left: 10px;
-      background-image: url('../../../Pages/jinsubaek/images/upload.png');
+      background-image: url('../../images/upload.png');
       background-size: cover;
       color: grey;
     }
   }
   .like {
-    @include setFlex(stretch);
+    @include setFlex(flex-start);
     margin-left: 10px;
     font-size: 15px;
 
@@ -82,9 +82,8 @@
   }
 
   .description {
-    @include setFlex(stretch, stretch);
-    margin-left: 10px;
-    margin-top: 10px;
+    @include setFlex(flex-start, flex-start);
+    margin: 10px 0 0 10px;
     font-size: 15px;
 
     span {
@@ -97,5 +96,11 @@
         color: #9c9c9c;
       }
     }
+  }
+
+  .comment {
+    position: relative;
+    margin-left: 10px;
+    font-size: 15px;
   }
 }

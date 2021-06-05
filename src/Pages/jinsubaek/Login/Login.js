@@ -9,15 +9,14 @@ class Login extends React.Component {
     this.state = {
       id: '',
       password: '',
-      isActivatedBtn: false,
     };
   }
 
-  goToMain() {
+  goToMain = () => {
     this.props.history.push('/main-baek');
-  }
+  };
 
-  handleSubmitForm(e) {
+  handleSubmitForm = e => {
     e.preventDefault();
 
     if (!validateInputValue(this.state.id, this.state.password)) {
@@ -28,54 +27,42 @@ class Login extends React.Component {
     } else {
       this.goToMain();
     }
-  }
+  };
 
-  handleChangeIdInput(e) {
+  handleChangeInput = e => {
     this.setState({
-      id: e.target.value,
+      [e.target.name]: e.target.value,
     });
-  }
-
-  handleChangePasswordInput(e) {
-    if (this.state.id && e.target.value) {
-      this.setState({
-        password: e.target.value,
-        isActivatedBtn: true,
-      });
-    } else {
-      this.setState({
-        password: e.target.value,
-        isActivatedBtn: false,
-      });
-    }
-  }
+  };
 
   render() {
     return (
-      <div className="Login">
+      <div className="login">
         <header>
           <h1>Westagram</h1>
         </header>
         <main>
-          <form onSubmit={e => this.handleSubmitForm(e)}>
+          <form onSubmit={this.handleSubmitForm}>
             <input
+              name="id"
               type="text"
               className="input-id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={e => this.handleChangeIdInput(e)}
+              onChange={this.handleChangeInput}
               value={this.state.id}
             />
             <input
+              name="password"
               type="password"
               className="input-password"
               placeholder="비밀번호"
-              onChange={e => this.handleChangePasswordInput(e)}
+              onChange={this.handleChangeInput}
               value={this.state.password}
             />
             <button
               type="submit"
               style={
-                this.state.isActivatedBtn
+                this.state.id && this.state.password
                   ? { backgroundColor: 'dodgerblue' }
                   : { backgroundColor: '#c5e0fe' }
               }

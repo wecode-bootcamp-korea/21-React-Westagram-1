@@ -1,6 +1,6 @@
 @import '../styles/common.scss';
 
-.Main {
-  @include setFlex(center, stretch);
+.main {
+  @include setFlex(center, flex-start);
   margin-top: 100px;
 }

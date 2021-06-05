@@ -1,7 +1,7 @@
-@import "../Styles/common.scss";
+@import '../Styles/common.scss';
 
-.Login {
-  @include setFlex(stretch, center, column);
+.login {
+  @include setFlex(flex-start, center, column);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,7 +17,7 @@
   header {
     margin-top: 20px;
     margin-bottom: 5%;
-    font-family: "Lobster", cursive;
+    font-family: 'Lobster', cursive;
     font-size: 35px;
   }
 
@@ -25,7 +25,7 @@
     width: 100%;
     margin: 40px 0 40px 0;
 
-      form {
+    form {
       @include setFlex(center, center, column);
       width: 80%;
       margin: 20px auto;
@@ -53,7 +53,7 @@
     }
   }
   footer {
-    @include setFlex(center, stretch);
+    @include setFlex(center, flex-start);
     position: absolute;
     bottom: 5%;
     width: 100%;

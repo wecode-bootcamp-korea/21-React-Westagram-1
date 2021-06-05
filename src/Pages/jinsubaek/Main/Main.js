@@ -1,8 +1,9 @@
 import React from 'react';
-import './Main.scss';
-import Aside from '../../../Components/jinsubaek/Aside/Aside';
+import Aside from './Aside/Aside';
 import Nav from '../../../Components/Nav/Nav';
-import Feed from '../../../Components/jinsubaek/Feed/Feed';
+import Feed from './Feed/Feed';
+import { createDate, createId } from '../utils/utils';
+import './Main.scss';
 
 class Main extends React.Component {
   constructor() {
@@ -18,24 +19,61 @@ class Main extends React.Component {
 
   async fetchFeeds() {
     try {
-      const res = await fetch(
-        'http://localhost:3000/data/jinsubaek/feedsData.json',
-        { method: 'GET' }
-      );
+      const res = await fetch('data/jinsubaek/feedsData.json', {
+        method: 'GET',
+      });
       const feeds = await res.json();
 
       this.setState({
-        feeds: [...this.state.feeds, ...feeds],
+        feeds,
       });
     } catch (err) {
       console.error(err);
     }
   }
 
+  addComment = (comment, feedId) => {
+    const newFeeds = this.state.feeds.map((feed, index) =>
+      index + 1 === feedId
+        ? {
+            ...feed,
+            comments: [
+              ...feed.comments,
+              {
+                userName: 'randomName',
+                content: comment,
+                id: createId(),
+                date: createDate(),
+              },
+            ],
+          }
+        : feed
+    );
+    this.setState({
+      feeds: newFeeds,
+    });
+  };
+
+  deleteComment = (commentId, feedId) => {
+    console.log(commentId, feedId);
+    const newFeeds = this.state.feeds.map((feed, index) =>
+      index + 1 === feedId
+        ? {
+            ...feed,
+            comments: feed.comments.filter(comment => comment.id !== commentId),
+          }
+        : feed
+    );
+
+    this.setState({
+      feeds: newFeeds,
+    });
+  };
+
   render() {
     const { feeds } = this.state;
     return (
-      <div className="Main">
+      <div className="main">
         <Nav />
         <section>
           <ul>
@@ -48,6 +86,8 @@ class Main extends React.Component {
                   imagePath={feed.imagePath}
                   content={feed.content}
                   comments={feed.comments}
+                  addComment={this.addComment}
+                  deleteComment={this.deleteComment}
                 />
               );
             })}

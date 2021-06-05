@@ -10,29 +10,29 @@ class UploadForm extends React.Component {
     };
   }
 
-  handleSubmitForm(e) {
+  handleSubmitForm = e => {
     e.preventDefault();
 
-    this.props.addComment(this.state.commentInputValue);
+    this.props.addComment(this.state.commentInputValue, this.props.feedId);
     this.setState({
       commentInputValue: '',
     });
-  }
+  };
 
-  handleChangeInput(e) {
+  handleChangeInput = e => {
     this.setState({
       commentInputValue: e.target.value,
     });
-  }
+  };
 
   render() {
     const { commentInputValue } = this.state;
     return (
-      <form className="UploadForm" onSubmit={e => this.handleSubmitForm(e)}>
+      <form className="uploadForm" onSubmit={this.handleSubmitForm}>
         <input
           type="text"
           placeholder="댓글 달기..."
-          onChange={e => this.handleChangeInput(e)}
+          onChange={this.handleChangeInput}
           value={commentInputValue}
         />
         <button

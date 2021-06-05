@@ -1,21 +1,17 @@
 import React from 'react';
-import './CommentLists.scss';
+import './CommentsList.scss';
 
 class CommentsList extends React.Component {
-  handleClickDeleteButton(commentId) {
-    this.props.deleteComment(commentId);
-  }
-
   render() {
-    const { comment } = this.props;
+    const { comment, feedId } = this.props;
     return (
-      <li>
+      <li className="commentsList">
         <div>
           <span className="name">{comment.userName}</span>
           <span>{comment.content}</span>
           <button
             className="delete"
-            onClick={() => this.handleClickDeleteButton(comment.id)}
+            onClick={() => this.props.deleteComment(comment.id, feedId)}
           >
             <span>X</span>
           </button>

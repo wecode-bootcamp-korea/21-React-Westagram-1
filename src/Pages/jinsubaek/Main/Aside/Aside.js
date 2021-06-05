@@ -5,7 +5,7 @@ import './Aside.scss';
 class Aside extends React.Component {
   render() {
     return (
-      <div className="Aside">
+      <div className="aside">
         <div className="wecode">
           <div className="profile">
             <img

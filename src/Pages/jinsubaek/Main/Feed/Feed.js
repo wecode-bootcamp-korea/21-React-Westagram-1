@@ -1,49 +1,15 @@
 import React from 'react';
-import './Feed.scss';
-import CommentLists from '../CommentLists/CommentLists';
+import CommentLists from '../CommentsList/CommentsList';
 import UploadForm from '../UploadForm/UploadForm';
-import { createDate, createId } from '../../../Pages/jinsubaek/utils/utils';
+
+import './Feed.scss';
 
 class Feed extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      comments: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      comments: this.props.comments,
-    });
-  }
-
-  addComment(comment) {
-    this.setState({
-      comments: [
-        ...this.state.comments,
-        {
-          userName: 'randomName',
-          content: comment,
-          id: createId(),
-          date: createDate(),
-        },
-      ],
-    });
-  }
-
-  deleteComment(commentId) {
-    this.setState({
-      comments: this.state.comments.filter(comment => comment.id !== commentId),
-    });
-  }
-
   render() {
-    const { id, userName, imagePath, content } = this.props;
-    const { comments } = this.state;
+    const { id, userName, imagePath, content, comments } = this.props;
+
     return (
-      <li className="Feed" key={id}>
+      <li className="feed" key={id}>
         <div className="title">
           <img alt="canon-mj's profile" src="/images/jinsubaek/profile1.jpeg" />
           <span className="feeds-title-id">{userName}</span>
@@ -77,18 +43,19 @@ class Feed extends React.Component {
         <div className="comment">
           <ul className="lists">
             {comments.length > 0 &&
-              this.state.comments.map(comment => {
+              comments.map(comment => {
                 return (
                   <CommentLists
                     key={comment.id}
                     comment={comment}
-                    deleteComment={commentId => this.deleteComment(commentId)}
+                    feedId={id}
+                    deleteComment={this.props.deleteComment}
                   />
                 );
               })}
           </ul>
         </div>
-        <UploadForm addComment={comment => this.addComment(comment)} />
+        <UploadForm feedId={id} addComment={this.props.addComment} />
       </li>
     );
   }
