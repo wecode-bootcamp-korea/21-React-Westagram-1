@@ -55,7 +55,6 @@ class Main extends React.Component {
   };
 
   deleteComment = (commentId, feedId) => {
-    console.log(commentId, feedId);
     const newFeeds = this.state.feeds.map((feed, index) =>
       index + 1 === feedId
         ? {
