@@ -1,0 +1,146 @@
+@import '../../Styles/common.scss';
+
+.aside {
+  width: 300px;
+  margin-left: 30px;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
+
+  .wecode {
+    @include setFlex(flex-start);
+
+    .profile {
+      width: 50px;
+      height: 50px;
+
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .description {
+      @include setFlex(flex-start, flex-start, column);
+      margin-left: 10px;
+      font-weight: bold;
+
+      span {
+        &:nth-child(2) {
+          color: #aaaaaa;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .story {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #e6e6e6;
+
+    .header {
+      @include setFlex(space-between);
+
+      span {
+        &:nth-child(1) {
+          color: #aaaaaa;
+        }
+      }
+    }
+
+    li {
+      @include setFlex(flex-start);
+      margin-top: 10px;
+
+      .profile {
+        width: 45px;
+        height: 45px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          padding: 2px;
+          border-radius: 50%;
+          border: 2px solid tomato;
+        }
+      }
+
+      .description {
+        @include setFlex(flex-start, flex-start, column);
+        margin-left: 10px;
+        font-weight: bold;
+
+        span {
+          &:nth-child(2) {
+            color: #aaaaaa;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+
+  .recommend {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #e6e6e6;
+
+    .header {
+      @include setFlex(space-between);
+
+      span {
+        &:nth-child(1) {
+          color: #aaaaaa;
+        }
+      }
+    }
+
+    li {
+      @include setFlex(flex-start);
+      margin-top: 10px;
+
+      .profile {
+        width: 45px;
+        height: 45px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          padding: 2px;
+          border-radius: 50%;
+          border: 2px solid tomato;
+        }
+      }
+
+      .description {
+        @include setFlex(flex-start, flex-start, column);
+        width: 60%;
+        margin-left: 10px;
+        font-weight: bold;
+
+        span {
+          &:nth-child(2) {
+            color: #aaaaaa;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .follow {
+        margin-left: 10px;
+        color: dodgerblue;
+      }
+    }
+  }
+  .info {
+    margin-top: 20px;
+    color: #cbcbcb;
+
+    a {
+      color: #cbcbcb;
+      text-decoration: none;
+    }
+  }
+}

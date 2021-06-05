@@ -1,0 +1,26 @@
+@import '../../Styles/common.scss';
+
+.uploadForm {
+  @include setFlex(flex-start);
+  position: relative;
+  height: 45px;
+  border: none;
+  border-top: 1px solid #e6e6e6;
+
+  input {
+    width: 90%;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
+  }
+
+  button {
+    position: absolute;
+    right: 5px;
+    width: 10%;
+    height: 100%;
+    background: none;
+    color: white;
+    font-size: 15px;
+  }
+}

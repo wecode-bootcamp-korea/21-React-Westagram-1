@@ -1,0 +1,106 @@
+@import '../../Styles/common.scss';
+
+.feed {
+  max-width: 600px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6e6;
+
+  .title {
+    @include setFlex(flex-start);
+    position: relative;
+    height: 60px;
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+      border-radius: 50%;
+    }
+
+    i {
+      position: absolute;
+      right: 20px;
+    }
+  }
+
+  .image {
+    img {
+      width: 100%;
+      height: 500px;
+    }
+  }
+
+  .tab {
+    @include setFlex(flex-start);
+    position: relative;
+    height: 40px;
+
+    i {
+      margin-left: 10px;
+      color: grey;
+
+      &:nth-child(1) {
+        color: tomato;
+      }
+
+      &:nth-child(4) {
+        position: absolute;
+        right: 20px;
+      }
+    }
+
+    .upload {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      background-image: url('../../images/upload.png');
+      background-size: cover;
+      color: grey;
+    }
+  }
+  .like {
+    @include setFlex(flex-start);
+    margin-left: 10px;
+    font-size: 15px;
+
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+
+    div {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .description {
+    @include setFlex(flex-start, flex-start);
+    margin: 10px 0 0 10px;
+    font-size: 15px;
+
+    span {
+      margin-right: 5px;
+      font-weight: bold;
+    }
+
+    div {
+      span {
+        color: #9c9c9c;
+      }
+    }
+  }
+
+  .comment {
+    position: relative;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+}
